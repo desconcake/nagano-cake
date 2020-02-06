@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2020_02_06_062132) do
   end
 
   create_table "order_items", force: :cascade do |t|
-    t.integer "order_id"
-    t.integer "item_id"
-    t.integer "order_quantity"
-    t.string "tax_included_price"
+    t.integer "order_id", null: false
+    t.integer "item_id", null: false
+    t.integer "order_quantity", null: false
+    t.string "tax_included_price", null: false
     t.integer "create_status", limit: 1, default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
