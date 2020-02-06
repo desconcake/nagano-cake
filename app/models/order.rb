@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
+    has_many :order_items
 
-	enum status: { waiting: 0, varification: 1, production: 3, Preparing: 4}
+	belong_to :customers
+
+	enum status: { waiting: 0, varification: 1, production: 2, Preparing: 3, sent: 4}
 end
