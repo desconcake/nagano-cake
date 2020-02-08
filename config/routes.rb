@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get 'customers/withdraw'
-	resource :custmers
+	resource :customers
 
   namespace :admins do
   resources :genres, only:[ :index, :edit]
