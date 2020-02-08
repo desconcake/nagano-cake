@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	  resources :customers, only:[ :index, :show, :edit, :update ]
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
 	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
-end
+	end
 
   resources :sub_addresses, only:[ :index, :show ]
   resources :orders, only:[ :index, :show, :new ]
