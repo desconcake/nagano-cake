@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-
-  resources :orders, only:[ :index, :show ]
-
+	  get 'home/top'
+	  resources :orders, only:[ :index, :show, :edit, :update ]
+	  resources :customers, only:[ :index, :show, :edit, :update ]
+	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
+	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
 end
 
   resources :sub_addresses, only:[ :index, :show ]
