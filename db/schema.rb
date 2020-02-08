@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2020_02_06_080016) do
 
   create_table "admins", force: :cascade do |t|
@@ -47,16 +46,22 @@ ActiveRecord::Schema.define(version: 2020_02_06_080016) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "name", null: false
+    t.boolean "genre_status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
     t.string "item_image_id", null: false
     t.string "non_taxed_price", null: false
     t.string "description", null: false
     t.boolean "sale_status", default: true, null: false
-
-  create_table "genres", force: :cascade do |t|
-    t.string "name", null: false
-    t.boolean "genre_status", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "order_items", force: :cascade do |t|
     t.integer "order_id", null: false
@@ -69,23 +74,23 @@ ActiveRecord::Schema.define(version: 2020_02_06_080016) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "billing_amount"
-    t.integer "postage"
-    t.string "method_of_payment"
-    t.string "delivery_name"
-    t.string "shipping_address"
-    t.string "postale_code"
-    t.string "order_status"
+    t.integer "customer_id", null: false
+    t.integer "billing_amount", null: false
+    t.integer "postage", null: false
+    t.string "method_of_payment", null: false
+    t.string "delivery_name", null: false
+    t.string "shipping_address", null: false
+    t.string "postale_code", null: false
+    t.string "order_status", limit: 1, default: "0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sub_addresses", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "shipping_address"
-    t.string "postal_code"
-    t.string "delivery_name"
+    t.integer "customer_id", null: false
+    t.string "shipping_address", null: false
+    t.string "postal_code", null: false
+    t.string "delivery_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
