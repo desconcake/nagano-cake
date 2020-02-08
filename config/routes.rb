@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  devise_for :customers
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   get 'customers/withdraw'
 	resource :custmers
 
   namespace :admins do
-    resources 'genres/index'
-    resources 'genres/edit'
+  resources :genres, only:[ :index, :edit]
   end
   namespace :admins do
-    root 'home#top'
+  root 'home#top'
   end
 
 
@@ -23,7 +26,4 @@ end
   get 'orders/check'
   get 'orders/thanks'
 
-  devise_for :admins
-  devise_for :customers
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
