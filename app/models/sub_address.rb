@@ -1,4 +1,4 @@
 class SubAddress < ApplicationRecord
 
-	belong_to :customer
+	belongs_to :customer
 end
