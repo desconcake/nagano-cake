@@ -12,12 +12,12 @@ class Admins::OrdersController < ApplicationController
 
 	def edit
 		@order_status = Order.find(params[:id])
-		@create_status = Order_items.find(params[:id])
+		@create_status = OrderItems.find(params[:id])
 	end
 
 	def update
 		@order_status = Order.update(order_params)
-		@order_items = Order_items.update(order_params)
+		@order_items = OrderItems.update(order_params)
 	end
 
 	private
