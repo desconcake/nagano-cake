@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'items/index'
+  get 'items/show'
  devise_for :admins
  devise_for :customers
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   get 'orders/thanks', to: 'orders#thanks'
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update ]
 
-  namespace :admin do
+  namespace :admins do
 	  get '/home/top', to: 'home#top'
 	  resources :orders, only:[ :index, :show, :edit, :update ]
 	  resources :customers, only:[ :index, :show, :edit, :update ]
