@@ -6,3 +6,12 @@ ja:
         waiting: 製作待ち
         making: 制作中
         completed: 製作完了
+
+
+
+
+ja:
+  boolean:
+    genre_status:
+      "false": "無効"
+      "true": "有効"
