@@ -1,15 +1,71 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NaganoCake</title>
+    <title>nagano_cake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/b3982dc813.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
+  <div id="wrap">
+    <header>
+      <div class="header">
+        <div class="container">
+              <div class="col-xs-8">
+                  <a herf="#">
+                    <h2 class="header_logo">ながのCAKE</h2>
+                      <!-- <img src="./img/logo.png" alt="logo" class="logo"/> -->
+                  </a>
+              </div>
 
-  <body>
-    <%= yield %>
-  </body>
+              <div class="col-xs-4 headerNavBox">
+                <% if customer_signed_in? %>
+                    <li>
+                    <%= link_to "My page", "#", class: "col-xs-2 headerNavBtn" %>
+                    </li>
+                    <li>
+                    <%= link_to "Cart", "#", class: "col-xs-2 headerNavBtn" %>
+                    </li>
+                    <li>
+                    <%= link_to "About", "#", class: "col-xs-2 headerNavBtn" %>
+                    </li>
+                    <li>
+                    <%= link_to "Logout", "#", class: "col-xs-2 headerNavBtn" %>
+                    </li>
+                  <% else %>
+                    <li>
+                    <%= link_to "About", "#", class: "col-xs-3 headerNavBtn" %>
+                    </li>
+                    <li>
+                    <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
+                    </li>
+                    <li>
+                    <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>
+                    </li>
+                 <% end %>
+              </div>
+        </div>
+      </div>
+    </header>
+    <body>
+      <div class="container">
+
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </body>
+    <footer>
+        <div id="footer">
+          <div class="copyright">© 2020 NaganoCake</div>
+        </div>
+    </footer>
+  </div>
 </html>
