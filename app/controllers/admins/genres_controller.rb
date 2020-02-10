@@ -18,6 +18,6 @@ class Admins::GenresController < ApplicationController
   	else
   		render :edit
   	end
-
   end
+
 end
