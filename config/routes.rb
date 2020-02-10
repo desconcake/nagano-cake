@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   devise_for :customers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  resources :items, only: [:index, :show]
+
   root 'home#top'
   get 'home/about'
   resources :sub_addresses, only:[ :index, :show ]
@@ -22,6 +24,7 @@ Rails.application.routes.draw do
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
 	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
 	end
+
 end
 
 
