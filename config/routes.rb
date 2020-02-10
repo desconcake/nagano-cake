@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update ]
 
   namespace :admin do
-	  get '/home/top', to: 'home#about'
+	  get '/home/top', to: 'home#top'
 	  resources :orders, only:[ :index, :show, :edit, :update ]
 	  resources :customers, only:[ :index, :show, :edit, :update ]
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
