@@ -17,7 +17,7 @@ class CartItemsController < ApplicationController
   end
 
   def update
-    @cart_item.update(book_params)
+    @cart_item.update(cart_item_params)
   end
 
   def destroy
@@ -31,7 +31,6 @@ class CartItemsController < ApplicationController
   end
 
   private
-
   def cart_item_params
       params.require(:cart_item).permit(:quantity)
   end

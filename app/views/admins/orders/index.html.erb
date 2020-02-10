@@ -1,55 +1,36 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>注文一覧画面</title>
-    <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="3Ub8cBski8W3vjqKRQCUnBraZKtnSISHyAQ4Gh3HtCsZeEmHqOLejhPzd9UeXloPfOpTKcd8Ie4GfmkhcnT48g==" />
+<head>
+</head>
 
-    <link rel="stylesheet" media="all" href="/assets/application-945628f9f95377705c9108ec9a9704e6f6ffa0767c02e34400d75b5be64fc1b7.css" data-turbolinks-track="reload" />
-    <script src="/assets/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>
-  </head>
-
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-          <span>注文一覧画面</span>
-      </div>
-    </header>
-
-  	<div class='body'>
-      <div class='container'>
-      	<div class='row'>
-
-
-  <table class='table table-hover table-inverse'>
-    <thead>
-      <tr>
-        <th>購入日時</th>
-        <th>購入者</th>
-        <th>注文個数</th>
-        <th>注文ステータス</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @orders.each do |order| %>
-       <th><%= link_to 'Show' admins_order %></th>
-       <th><%= order.customer.name %></th>
-       <th><%= order.order_item.quantity %></th>
-       <th></th>
-    </tbody>
-  </table>
-    </div>
+<body>
+  <div class="container">
+    <h2>注文一覧画面</h2>
   </div>
-    </div>
+	<div class='row'>
+    <table class='table table-hover table-inverse'>
+      <thead>
+        <tr>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @orders.each do |order| %>
+         <th><%= link_to order.created_at, admins_order_path(order.id) %></th>
+         <th><%= order.customer.name %></th>
+         <th><%= order.order_item.quantity %></th>
+         <th><%= order.order_status %></th>
+         <% end %>
+      </tbody>
+    </table>
   </div>
 
-    <footer>
-  <div class='container'>
-  	<div class='row'>
-    </div>
-  </div>
+<footer>
 </footer>
 
-  </body>
+</body>
 </html>

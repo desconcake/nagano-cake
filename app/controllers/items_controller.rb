@@ -7,6 +7,16 @@ class ItemsController < ApplicationController
 	def show
 		@item = Items.find(params[:id])
 		@quanity = OrderItems.new
+		@tax = @item.tax_included_price
+	end
+
+	def new
+		@item = Items.new
+		@genres = Genre.all
+	end
+
+	def create
+		@item = Item.new(item_params)
 	end
 
 	private
