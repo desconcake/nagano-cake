@@ -36,15 +36,10 @@
                     <%= link_to "Logout", "#", class: "col-xs-2 headerNavBtn" %>
                     </li>
                   <% else %>
-                    <li>
-                    <%= link_to "About", "#", class: "col-xs-3 headerNavBtn" %>
-                    </li>
-                    <li>
+
+                    <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
                     <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
-                    </li>
-                    <li>
                     <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>
-                    </li>
                  <% end %>
               </div>
         </div>

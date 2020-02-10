@@ -21,9 +21,11 @@
     </div>
 
     <div class="col-xs-10">
-      <h2>ケーキ</h2>
-        <div class="container">
+      <div class="title">ケーキ
+        <span class="item_count">全 <%= @items.count %> 件</span>
+      </div>
 
+        <div class="container">
             <% @items.each do |item| %>
             <div class="item">
                 <%= attachment_image_tag item, :item_image, :fill, 200, 150, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg", :size =>'200x150' %>
