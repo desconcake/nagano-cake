@@ -1,2 +1,34 @@
-<h1>Customers#edit</h1>
-<p>Find me in app/views/customers/edit.html.erb</p>
+<div class="genre-edit container">
+	<div class="row">
+		<div class="col-xs-7">
+			<div class="">
+				<h4>登録情報編集<span><%= link_to "退会する", customers_withdraw_path, class: "btn btn-primary" %></span></h4>
+
+				<div class="info">
+				<table class="tableArea" id="makeImg">
+				  <tr>
+				  	<%= form_for (@customer) do |f| %>
+				    <th>氏名</th><td><%= f.text_field :surname %>&ensp;<%= f.text_field :name %></td>
+				  </tr>
+				  <tr>
+				    <th>カナ</th><td><%= f.text_field :surname_kana %>&ensp;<%= f.text_field :name_kana %></td>
+				  </tr>
+				  <tr>
+				    <th>郵便番号</th><td><%= f.text_field :postal_code %></td>
+				  </tr>
+				  <tr>
+				    <th>住所</th><td><%= f.text_field :address, :size=>"50"%></td>
+				  </tr>
+				  <tr>
+				    <th>電話番号</th><td><%= f.text_field :phone_number %></td>
+				  </tr>
+				  <tr>
+				    <th>メールアドレス</th><td><%= f.text_field :email, :size=>"40" %></td>
+				  </tr>
+				  <% end %>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

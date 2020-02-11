@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_080016) do
     t.string "postal_code", null: false
     t.string "address", null: false
     t.integer "customer_status", default: 0, null: false
+    t.datetime "deleted_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_02_06_080016) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer "genre_id", null: false
     t.string "name", null: false
     t.string "item_image_id", null: false
     t.string "non_taxed_price", null: false
