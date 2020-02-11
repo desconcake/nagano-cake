@@ -1,6 +1,6 @@
 class CartItemsController < ApplicationController
   def index
-    @cart_items = Customer.cart_items.where(id: current_user.id)
+    @cart_items = CartItems.all
   end
 
   def new
@@ -26,7 +26,7 @@ class CartItemsController < ApplicationController
   end
 
   def clear
-    @cart_items = Customer.cart_items.where(id: current_user.id)
+    @cart_items = CartItems.all
     @cart_items.destroy.all
   end
 
