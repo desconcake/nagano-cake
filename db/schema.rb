@@ -84,7 +84,11 @@ ActiveRecord::Schema.define(version: 2020_02_11_061011) do
     t.integer "customer_id", null: false
     t.integer "billing_amount", null: false
     t.integer "postage", null: false
+
+    t.boolean "method_of_payment", default: true, null: false
+
     t.string "method_of_payment", null: false
+
     t.string "delivery_name", null: false
     t.string "shipping_address", null: false
     t.string "postale_code", null: false

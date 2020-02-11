@@ -26,5 +26,15 @@ Rails.application.routes.draw do
 	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
 	end
 
+<<<<<<< HEAD
+  resources :sub_addresses
+  resources :orders, only:[ :index, :show, :new ]
+  get 'orders/check'
+  get 'orders/thanks'
+  devise_for :admins
+  devise_for :customers
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+=======
+>>>>>>> develop
 end
 
