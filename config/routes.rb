@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 end
 
-  resources :sub_addresses, only:[ :index, :show ]
+  resources :sub_addresses
   resources :orders, only:[ :index, :show, :new ]
   get 'orders/check'
   get 'orders/thanks'

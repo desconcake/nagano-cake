@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(version: 2020_02_06_080016) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "surname", null: false
+    t.string "name", null: false
+    t.string "surname_kana", null: false
+    t.string "name_kana", null: false
+    t.string "phone_number", null: false
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.integer "customer_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -72,23 +80,23 @@ ActiveRecord::Schema.define(version: 2020_02_06_080016) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "billing_amount"
-    t.integer "postage"
-    t.string "method_of_payment"
-    t.string "delivery_name"
-    t.string "shipping_address"
-    t.string "postale_code"
-    t.string "order_status"
+    t.integer "customer_id", null: false
+    t.integer "billing_amount", null: false
+    t.integer "postage", null: false
+    t.boolean "method_of_payment", default: true, null: false
+    t.string "delivery_name", null: false
+    t.string "shipping_address", null: false
+    t.string "postale_code", null: false
+    t.string "order_status", limit: 1, default: "0", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "sub_addresses", force: :cascade do |t|
-    t.integer "customer_id"
-    t.string "shipping_address"
-    t.string "postal_code"
-    t.string "delivery_name"
+    t.integer "customer_id", null: false
+    t.string "shipping_address", null: false
+    t.string "postal_code", null: false
+    t.string "delivery_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
