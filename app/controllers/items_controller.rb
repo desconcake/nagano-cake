@@ -6,8 +6,7 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Items.find(params[:id])
-		@quanity = OrderItems.new
-		@tax = @item.tax_included_price
+		@cart_item = Cartitems.new
 	end
 
 	def new

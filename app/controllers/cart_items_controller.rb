@@ -1,10 +1,7 @@
 class CartItemsController < ApplicationController
   def index
     @cart_items = CartItems.all
-  end
-
-  def new
-    @cart_item = CartItems.new
+    @cart_items.id == current_user.id
   end
 
   def create
@@ -27,7 +24,7 @@ class CartItemsController < ApplicationController
 
   def clear
     @cart_items = CartItems.all
-    @cart_items.destroy.all
+    @cart_items.destroy_all
   end
 
   private
