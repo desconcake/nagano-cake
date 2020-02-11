@@ -8,10 +8,18 @@ class CustomersController < ApplicationController
   end
 
   def withdraw
-    # @customer =Customer.current
+     @customer = current_customer
+     # @customer.destroy
     # if @customer.update(customer_params)
       # redirect_to root_path
-  # end
+    # end
+  end
+
+  def destroy
+    @customer = current_customer
+    if @customer.destroy
+      redirect_to root_path
+    end
   end
 
   def update

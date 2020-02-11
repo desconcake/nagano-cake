@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/customers/withdraw', to: 'customers#withdraw'
-  resources :customers, only:[ :edit, :show, :update ]
+  resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ]
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
