@@ -10,6 +10,8 @@ Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
 Genre.find_or_create_by(id:3, name: "プリン", genre_status: 1)
 Genre.find_or_create_by(id:4, name: "焼き菓子", genre_status: 1)
+Genre.find_or_create_by(id:5, name: "キャンディ", genre_status: 0)
+Genre.find_or_create_by(id:6, name: "和菓子", genre_status: 1)
 
 Item.find_or_create_by(name: "洋梨のチーズタルト", non_taxed_price: "1,200", genre_id: 1, description: "aaa")
 Item.find_or_create_by(name: "ザッハトルテ", non_taxed_price: "2,900", genre_id: 1, description: "aaa")

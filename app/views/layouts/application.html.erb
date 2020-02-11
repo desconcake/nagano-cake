@@ -23,18 +23,10 @@
 
               <div class="col-xs-4 headerNavBox">
                 <% if customer_signed_in? %>
-                    <li>
-                    <%= link_to "My page", "#", class: "col-xs-2 headerNavBtn" %>
-                    </li>
-                    <li>
-                    <%= link_to "Cart", "#", class: "col-xs-2 headerNavBtn" %>
-                    </li>
-                    <li>
-                    <%= link_to "About", "#", class: "col-xs-2 headerNavBtn" %>
-                    </li>
-                    <li>
-                    <%= link_to "Logout", "#", class: "col-xs-2 headerNavBtn" %>
-                    </li>
+                    <%= link_to "My page", customer_path(customer.id), class: "col-xs-2 headerNavBtn" %>
+                    <%= link_to "Cart", cart_items_path, class: "col-xs-2 headerNavBtn" %>
+                    <%= link_to "About", home_about, class: "col-xs-2 headerNavBtn" %>
+                    <%= link_to "Logout", destroy_customer_session, class: "col-xs-2 headerNavBtn" %>
                   <% else %>
 
                     <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
