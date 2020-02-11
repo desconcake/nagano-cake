@@ -25,10 +25,14 @@
 				  <tr>
 				    <th>メールアドレス</th><td><%= f.text_field :email, :size=>"40" %></td>
 				  </tr>
-				  <% end %>
 				</table>
+				<input type="submit" name="commit" value="編集内容を保存する" data-disable-with="Update Customer" class="btn-primary" >
+
+				<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<!-- data: {"turbolinks" => false} -->

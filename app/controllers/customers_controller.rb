@@ -1,18 +1,23 @@
 class CustomersController < ApplicationController
   def show
-  	@customer = Customer.find(params[:id])
+  	@customer = current_customer
   end
 
   def edit
-  	@customer =Customer.find(params[:id])
+  	@customer = current_customer
   end
 
   def withdraw
      @customer = current_customer
-     # @customer.destroy
-    # if @customer.update(customer_params)
-      # redirect_to root_path
-    # end
+
+  end
+
+
+  def update
+    @customer = current_customer
+    if @customer.update(customer_params)
+      redirect_to customer_path(@customer.id)
+    end
   end
 
   def destroy
@@ -22,11 +27,10 @@ class CustomersController < ApplicationController
     end
   end
 
-  def update
-    @customer = Customer.find(params[:id])
-    if @customer.uodate(customer_params)
-      redirect_to customers_path()
-    end
+
+  private
+  def customer_params
+    params.require(:customer).permit(:surname, :name, :surname_kana, :name_kana, :phone_number, :postal_code, :address, :email, :deleted_at)
   end
 
 end
