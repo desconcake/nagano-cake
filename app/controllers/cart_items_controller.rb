@@ -1,16 +1,15 @@
 class CartItemsController < ApplicationController
   def index
-    @cart_items = CartItems.all
-    @cart_items.id == current_user.id
+    @cart_items = CartItem.all
   end
 
   def create
-    @cart_item = CartItems.new(cart_item_params)
+    @cart_item = CartItem.new(cart_item_params)
     @cart_item.save
   end
 
   def edit
-    @cart_item = CartItems.find(params[:id])
+    @cart_item = CartItem.find(params[:id])
   end
 
   def update
@@ -18,13 +17,13 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    @cart_item = CartItems.find(params[:id])
+    @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
   end
 
   def clear
-    @cart_items = CartItems.all
-    @cart_items.destroy_all
+    @cart_items = CartItem.all
+    @cart_items.destroy.all
   end
 
   private

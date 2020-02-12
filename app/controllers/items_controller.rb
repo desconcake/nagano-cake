@@ -6,13 +6,12 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		@item = Items.find(params[:id])
-		@cart_item = Cartitems.new
+		@item = Item.find(params[:id])
+		@cart_item = CartItem.new
 	end
 
 	def new
-		@item = Items.new
-		@genres = Genre.all
+		@item = Item.new
 	end
 
 	def create
@@ -21,7 +20,7 @@ class ItemsController < ApplicationController
 
 	private
 	def item_params
-	  params.require(:item).permit(:name, :item_image_id, :non_taxed_price, :description)
+	  params.require(:item).permit(:name, :item_image, :non_taxed_price, :description)
 	end
 
 end
