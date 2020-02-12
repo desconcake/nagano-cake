@@ -18,13 +18,10 @@ class Admins::CustomersController < ApplicationController
     redirect_to customer_path(@customer.id)
   end
 
-  def withdraw
-    @customer = Customer.find(params[:id])
-  end
 
-  private
+   private
   def customer_params
-    params.require(:customer).permit(:surname, :name, :surname_kana, :name_kana, :phone_number, :postal_code, :address, :email, :deleted_at)
+    params.require(:customer).permit(:surname, :name, :surname_kana, :name_kana, :phone_number, :postal_code, :address, :email, :customer_status)
   end
 
 end

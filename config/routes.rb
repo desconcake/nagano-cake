@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'home#top'
   devise_for :customers, controllers: {
         sessions: 'customers/sessions',
-        registrations: 'customers/registrations'
+        registrations: 'customers/registrations
       }
   get 'home/about', to: 'home#about'
   devise_for :admins
