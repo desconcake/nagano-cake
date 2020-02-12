@@ -1,20 +1,14 @@
 ja:
-  enums:
-    battle:
-      status:
-        impossible: 着手不可
-        waiting: 製作待ち
-        making: 制作中
-        completed: 製作完了
+  # activerecord:
+    enums:
+      OrderItem:
+        create_status:
+          impossible: 着手不可
+          waiting: 製作待ち
+          making: 制作中
+          completed: 製作完了
 
-ja:
-  boolean:
-    genre_status:
-      "false": "無効"
-      "true": "有効"
 
-ja:
-  boolean:
-     sale_status:
-      "false": "販売中止"
-      "true": "販売中"
+
+
+

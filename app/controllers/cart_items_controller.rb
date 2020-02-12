@@ -5,6 +5,7 @@ class CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.new(cart_item_params)
+    item_id = item.id #必要なカラムに情報を入れてあげる
     @cart_item.save
   end
 
@@ -23,7 +24,7 @@ class CartItemsController < ApplicationController
 
   def clear
     @cart_items = CartItem.all
-    @cart_items.destroy.all
+    @cart_items.destroy_all
   end
 
   private
