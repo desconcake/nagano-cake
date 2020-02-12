@@ -1,58 +1,66 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>nagano_cake</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>nagano_cake</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <script src="https://kit.fontawesome.com/b3982dc813.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <div id="wrap">
-    <header>
-      <div class="header">
-        <div class="container">
-              <div class="col-xs-8">
-                  <a herf="#">
-                    <h2 class="header_logo">ながのCAKE</h2>
-                      <!-- <img src="./img/logo.png" alt="logo" class="logo"/> -->
-                  </a>
-              </div>
-
-              <div class="col-xs-4 headerNavBox">
-                <% if customer_signed_in? %>
-                    <%= link_to "My page", customer_path(customer.id), class: "col-xs-2 headerNavBtn" %>
-                    <%= link_to "Cart", cart_items_path, class: "col-xs-2 headerNavBtn" %>
-                    <%= link_to "About", home_about, class: "col-xs-2 headerNavBtn" %>
-                    <%= link_to "Logout", destroy_customer_session, class: "col-xs-2 headerNavBtn" %>
-                  <% else %>
-
-                    <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
-                    <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
-                    <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>
-                 <% end %>
-              </div>
-        </div>
-      </div>
-    </header>
-    <body>
-      <div class="container">
-
-        <% if flash[:notice] %>
-          <div class="flash">
-            <%= flash[:notice] %>
+  <script src="https://kit.fontawesome.com/b3982dc813.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="wrap">
+<header>
+  <div class="header">
+    <div class="container">
+          <div class="col-xs-8">
+            <h2>
+              <%= link_to "ながのCAKE", items_path, class: "header_logo" %>
+            </h2>
           </div>
-        <% end %>
 
-        <%= yield %>
-      </div>
-    </body>
-    <footer>
-        <div id="footer">
-          <div class="copyright">© 2020 NaganoCake</div>
-        </div>
-    </footer>
+          <div class="col-xs-5 headerNavBox">
+            <% if customer_signed_in? %>
+                <%= link_to "My page", cart_items_path, class: "col-xs-2 headerNavBtn" %>
+                <%= link_to "Cart", cart_items_path, class: "col-xs-2 headerNavBtn" %>
+                <%= link_to "About", home_about_path, class: "col-xs-2 headerNavBtn" %>
+                <%= link_to "Logout", destroy_customer_session_path, class: "col-xs-2 headerNavBtn" %>
+              <% elsif admin_signed_in? %>
+                 <%= link_to "商品一覧", admins_items_path, class: "col-xs-2 headerNavBtn" %>
+                <%= link_to "会員一覧", admins_customers_path, class: "col-xs-2 headerNavBtn" %>
+                <%= link_to "注文履歴一覧", admins_orders_path, class: "col-xs-2 headerNavBtn" %>
+                <%= link_to "ジャンル管理", admins_genres_path, class: "col-xs-2 headerNavBtn" %>
+              <% else %>
+                <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
+                <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
+                <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>
+             <% end %>
+          </div>
+    </div>
   </div>
+</header>
+<section>
+    <div class="container">
+
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+    </div>
+</section>
+<footer>
+  <% if customer_signed_in? %>
+    <div id="footer">
+      <div class="copyright">© 2020 NaganoCake</div>
+    </div>
+    <% else %>
+  <% end %>
+</footer>
+</div>
+</body>
 </html>

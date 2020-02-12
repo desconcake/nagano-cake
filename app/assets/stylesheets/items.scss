@@ -3,10 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .table {
-    /*border: 1px solid #6f5436;*/
-    background-color: #eee7e0;
-    overflow: hidden;
-    border-radius: 6px;
+  /*border: 1px solid #6f5436;*/
+  background-color: #ede4e1;
+  overflow: hidden;
+  border-radius: 6px;
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
+}
+
+/*#genre_list_area table tr th {
+  font-weight: bold;
+}*/
+
+.genre_text {
+  color :#444;
+}
+
+.genre_text:hover {
+  color :#222;
 }
 
 .item_list_box {
@@ -17,6 +30,13 @@
 .item_btn {
   .item_link{
     color: #444;
+    text-decoration: none;
+  }
+}
+
+.item_btn {
+  .item_link:hover{
+    color: #808080;
     text-decoration: none;
   }
 }
