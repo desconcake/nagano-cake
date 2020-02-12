@@ -9,7 +9,7 @@
       <%= form_for @item, url: admins_items_path do |f| %>
         <div class = "form-group">
             <div class="field">
-             <%= attachment_image_tag @item, :item_image, :fill, 400, 400, fallback: "no_image.png", size: '400x400'  %>
+             <%= attachment_image_tag @item, :item_image, :fill, 200, 200, fallback: "no_image.png", size: '200x200'  %>
               <%= f.attachment_field :item_image %>
             </div>
 
@@ -20,7 +20,12 @@
 
             <div class="field">
                 <label for="user_name">商品説明</label>
-                <%= f.text_field :description %>
+                <%= f.text_area :description %>
+            </div>
+
+            <div class="field">
+                <label for="user_name">ジャンル</label>
+                <%= f.collection_select(:genre_id, @genres, :id, :name) %>
             </div>
 
             <div class="field">

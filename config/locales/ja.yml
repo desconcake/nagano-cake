@@ -7,11 +7,14 @@ ja:
         making: 制作中
         completed: 製作完了
 
-
-
-
 ja:
   boolean:
     genre_status:
       "false": "無効"
       "true": "有効"
+
+ja:
+  boolean:
+     sale_status:
+      "false": "販売中止"
+      "true": "販売中"

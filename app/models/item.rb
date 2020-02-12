@@ -4,7 +4,8 @@ class Item < ApplicationRecord
   has_many :order_items, dependent: :destroy
   has_many :orders, through: :order_items
   belongs_to :genre
+# 　enum status: { invalid: false, available: true }
   def priceWithTax
-    on_taxed_price * 1.08
+    non_taxed_price * 1.08
   end
 end

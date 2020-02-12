@@ -8,15 +8,15 @@
 
 Customer.create!(
 	email: 'test@test.com',
-	encrypted_password: '111111',
+	password: '111111',
 	surname: '姓',
 	name: '名',
-	surname_kana: '姓カナ'
+	surname_kana: '姓カナ',
 	name_kana: '名カナ',
-	phone_number: '09000000000'
-	postal_code: '1600000'
-	address: '東京都渋谷区神南	１丁目'
-	customer_status: '0'
+	phone_number: '09000000000',
+	postal_code: '1600000',
+	address: '東京都渋谷区神南	１丁目',
+	deleted_at: '0'
 )
 
 # Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
