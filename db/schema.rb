@@ -54,15 +54,14 @@ ActiveRecord::Schema.define(version: 2020_02_11_061011) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "genre_status", default: true, null: false
+    t.boolean "genre_status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "genre_id", null: false
     t.string "name", null: false
-    t.string "item_image_id"
+    t.string "item_image_id", null: false
     t.integer "non_taxed_price", null: false
     t.string "description", null: false
     t.boolean "sale_status", default: true, null: false
@@ -84,11 +83,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_061011) do
     t.integer "customer_id", null: false
     t.integer "billing_amount", null: false
     t.integer "postage", null: false
-
     t.boolean "method_of_payment", default: true, null: false
-
-    t.string "method_of_payment", null: false
-
     t.string "delivery_name", null: false
     t.string "shipping_address", null: false
     t.string "postale_code", null: false

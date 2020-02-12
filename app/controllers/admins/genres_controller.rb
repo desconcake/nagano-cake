@@ -8,6 +8,10 @@ class Admins::GenresController < ApplicationController
   	@genre = Genre.find(params[:id])
   end
 
+  def new
+
+  end
+
   def create
   	@genre = Genre.new(genre_params)
   end

@@ -25,6 +25,7 @@ class OrdersController < ApplicationController
   end
 
   def check
+    binding.pry
     @order = Order.find(params[:id])
   end
 
@@ -42,7 +43,16 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:shipping_address, :sale_status, :created_at)
-    params.require(:item).permit(:name)
-    params.require(:customer).permit(:address)
   end
+
+  def item_params
+     params.require(:item).permit(:name)
+  end
+
+  def customer_params
+     params.require(:customer).permit(:delivery_name, :postal_code, :shipping_address)
+  end
+
+
+
 end

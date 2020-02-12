@@ -10,7 +10,8 @@ class SubAddressesController < ApplicationController
 
   def create
   	@sub_address = SubAddress.new(sub_address_params)
-    @sub_address.customer_id = current_customer.id
+    @sub_address.customer_id
+    # @sub_address.customer_id = current_customer.id
     if @sub_address.save
       flash[:notice] = '登録できました'
       redirect_to sub_addresses_path(@sub_address.id)
