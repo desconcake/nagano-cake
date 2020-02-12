@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_105638) do
     t.string "phone_number", null: false
     t.string "postal_code", null: false
     t.string "address", null: false
+    t.integer "customer_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
@@ -84,11 +85,7 @@ ActiveRecord::Schema.define(version: 2020_02_11_105638) do
     t.integer "customer_id", null: false
     t.integer "billing_amount", null: false
     t.integer "postage", null: false
-
-    t.boolean "method_of_payment", default: true, null: false
-
     t.string "method_of_payment", null: false
-
     t.string "delivery_name", null: false
     t.string "shipping_address", null: false
     t.string "postale_code", null: false
