@@ -1,17 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'items/index'
-  get 'items/show'
  devise_for :admins
- devise_for :customers
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ devise_for :customers, controllers: {
+      sessions: 'customers/sessions',
+      registrations: 'customers/registrations'
+          }
 
-  resources :items, only: [:index, :show]
-
-  root 'home#top'
+  root to: 'home#top'
   get '/home/about', to: 'home#about'
   resources :customers, only:[ :edit, :show, :update, :destroy ]
   get '/customers/withdraw', to: 'customers#withdraw'
+  resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ]
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
@@ -27,6 +26,6 @@ Rails.application.routes.draw do
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
 	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
 	end
-
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
