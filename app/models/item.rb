@@ -9,3 +9,4 @@ class Item < ApplicationRecord
     non_taxed_price * 1.08
   end
 end
+

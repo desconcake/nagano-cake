@@ -1,3 +1,80 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table {
+  /*border: 1px solid #6f5436;*/
+  background-color: #ede4e1;
+  overflow: hidden;
+  border-radius: 6px;
+  filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
+}
+
+#genre_list_area table tr th {
+  font-weight: bold;
+  /*てすとだよ〜*/
+}
+
+/*.table_genre{
+  font-weight: bold;
+  /*テスト２*/
+
+.genre_text {
+  color :#444;
+}
+
+.genre_text:hover {
+  color: #808080;
+}
+
+.item_list_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item_btn {
+  .item_link{
+    color: #444;
+    text-decoration: none;
+  }
+}
+
+.item_btn {
+  .item_link:hover{
+    color: #808080;
+    text-decoration: none;
+  }
+}
+
+.price_text {
+  display: block;
+  color: #c49a6a;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.item_count {
+  padding: 12px;
+  font-size: 17px;
+  font-weight: nomal;
+}
+
+/* show.html.erb */
+
+.text_color{
+  color: #333;
+}
+
+.price{
+  margin: 0 0 35px;
+  font-size: 20px;
+  line-height: 1.3;
+  color: #c49a6a;
+}
+
+.price span{
+  font-size: 12px;
+}
