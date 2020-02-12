@@ -3,8 +3,14 @@ class ApplicationController < ActionController::Base
 
 
 	def after_sign_in_path_for(resource)
+    if resource.is_a?(Admin)
+      binding.pry
+      admins_root_path
+    else
+      binding.pry
     	customer_path(resource.id)
   	end
+  end
 
   	def after_sign_out_path_for(resource)
     	root_path
