@@ -10,16 +10,21 @@
   filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
 }
 
-/*#genre_list_area table tr th {
+#genre_list_area table tr th {
   font-weight: bold;
-}*/
+  /*てすとだよ〜*/
+}
+
+/*.table_genre{
+  font-weight: bold;
+  /*テスト２*/
 
 .genre_text {
   color :#444;
 }
 
 .genre_text:hover {
-  color :#222;
+  color: #808080;
 }
 
 .item_list_box {

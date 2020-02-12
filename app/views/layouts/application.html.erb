@@ -15,29 +15,29 @@
 <header>
   <div class="header">
     <div class="container">
-          <div class="col-xs-8">
-            <h2>
-              <%= link_to "ながのCAKE", items_path, class: "header_logo" %>
-            </h2>
-          </div>
+        <div class="col-xs-8">
+          <h2>
+            <%= link_to "ながのCAKE", items_path, class: "header_logo" %>
+          </h2>
+        </div>
 
-          <div class="col-xs-5 headerNavBox">
-            <% if customer_signed_in? %>
-                <%= link_to "My page", cart_items_path, class: "col-xs-2 headerNavBtn" %>
-                <%= link_to "Cart", cart_items_path, class: "col-xs-2 headerNavBtn" %>
-                <%= link_to "About", home_about_path, class: "col-xs-2 headerNavBtn" %>
-                <%= link_to "Logout", destroy_customer_session_path, class: "col-xs-2 headerNavBtn" %>
-              <% elsif admin_signed_in? %>
-                 <%= link_to "商品一覧", admins_items_path, class: "col-xs-2 headerNavBtn" %>
-                <%= link_to "会員一覧", admins_customers_path, class: "col-xs-2 headerNavBtn" %>
-                <%= link_to "注文履歴一覧", admins_orders_path, class: "col-xs-2 headerNavBtn" %>
-                <%= link_to "ジャンル管理", admins_genres_path, class: "col-xs-2 headerNavBtn" %>
-              <% else %>
-                <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
-                <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
-                <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>
-             <% end %>
-          </div>
+        <div class="col-xs-5 headerNavBox">
+          <% if customer_signed_in? %>
+            <%= link_to "My page", cart_items_path, class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "Cart", cart_items_path, class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "About", home_about_path, class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "Logout", destroy_customer_session_path, method: :delete, class: "col-xs-2 headerNavBtn" %>
+          <% elsif admin_signed_in? %>
+             <%= link_to "商品一覧", admins_items_path, class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "会員一覧", admins_customers_path, class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "注文履歴一覧", admins_orders_path, class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "ジャンル管理", admins_genres_path, class: "col-xs-2 headerNavBtn" %>
+          <% else %>
+            <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
+            <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
+            <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>
+         <% end %>
+        </div>
     </div>
   </div>
 </header>
@@ -58,7 +58,11 @@
     <div id="footer">
       <div class="copyright">© 2020 NaganoCake</div>
     </div>
+    <% elsif admin_signed_in? %>
     <% else %>
+    <div id="footer">
+      <div class="copyright">© 2020 NaganoCake</div>
+    </div>
   <% end %>
 </footer>
 </div>

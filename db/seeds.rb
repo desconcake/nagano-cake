@@ -17,7 +17,6 @@ Genre.find_or_create_by(id:4, name: "プリン・ゼリー", genre_status: 1)
 Genre.find_or_create_by(id:5, name: "和菓子", genre_status: 0)
 Genre.find_or_create_by(id:6, name: "アイス", genre_status: 1)
 
-
 Item.find_or_create_by(id:1, name: "洋梨のチーズタルト", non_taxed_price: 1200, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:2, name: "ザッハトルテ", non_taxed_price: 2900, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:3, name: "いちごのショートケーキ", non_taxed_price: 500, genre_id: 1, description: "aaa")

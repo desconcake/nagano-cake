@@ -5,6 +5,8 @@ Rails.application.routes.draw do
         sessions: 'customers/sessions',
         registrations: 'customers/registrations'
       }
+
+
   get 'home/about', to: 'home#about'
   devise_for :admins, controllers: {
         sessions: 'admins/sessions',
