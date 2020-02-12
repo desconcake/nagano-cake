@@ -9,12 +9,12 @@
 
 # Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
 
-Genre.find_or_create(id:1, name: "ケーキ", genre_status: 1)
-Genre.find_or_create(id:2, name: "クッキー", genre_status: 1)
-Genre.find_or_create(id:3, name: "チョコレート", genre_status: 1)
-Genre.find_or_create(id:4, name: "プリン・ゼリー", genre_status: 1)
-Genre.find_or_create(id:5, name: "和菓子", genre_status: 1)
-Genre.find_or_create(id:6, name: "アイス", genre_status: 1)
+Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
+Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
+Genre.find_or_create_by(id:3, name: "チョコレート", genre_status: 1)
+Genre.find_or_create_by(id:4, name: "プリン・ゼリー", genre_status: 1)
+Genre.find_or_create_by(id:5, name: "和菓子", genre_status: 1)
+Genre.find_or_create_by(id:6, name: "アイス", genre_status: 1)
 
 
 
