@@ -36,7 +36,7 @@ body{
   padding:0;
   border-top:6px solid #6f5436;/*#D2B48C 茶系*/
   background-color: #fff;
-  color: #6f5436;/*色薄め、限界の薄さ。2、3をよく使用する。*/
+  color: #6f5436;
   font-family:'Noto Sans JP','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
 }
 
@@ -47,7 +47,6 @@ body{
 }
 
 .header_logo {
-  font-family: 'メイリオ';
   color: #6f5436;
   font-weight: bold;
   text-decoration: none;
