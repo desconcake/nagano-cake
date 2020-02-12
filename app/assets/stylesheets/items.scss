@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.table {
+    /*border: 1px solid #6f5436;*/
+    background-color: #eee7e0;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
 .item_list_box {
   display: flex;
   flex-wrap: wrap;

@@ -9,12 +9,9 @@
         <tbody>
           <% @genres.each do |genre| %>
             <tr>
-              <td>
-                <% if genre.genre_status == true %>
+              <td style="border-style: none;">
                   <%= link_to items_path do %>
                     <%= genre.name %>
-                  <% end %>
-
                   <% end %>
               </td>
             </tr>
@@ -37,7 +34,7 @@
                 </div>
                 <div class="price_text">
                   <% @item_price = item.non_taxed_price.to_i * 1.1  %>
-                ¥<%= @item_price.floor  %>
+                ¥<%= @item_price.floor.to_s(:delimited) %>
                 </div>
             </div>
             <% end %>

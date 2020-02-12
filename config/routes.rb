@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'orders/thanks', to: 'orders#thanks'
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update ]
 
-  namespace :admin do
+  namespace :admins do
 	  get '/home/top', to: 'home#top'
 	  resources :orders, only:[ :index, :show, :edit, :update ]
 	  resources :customers, only:[ :index, :show, :edit, :update ]

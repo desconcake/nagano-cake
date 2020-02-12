@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.page(params[:page]).reverse_order
     @items_count = Item.count
-    @genres = Genre.all
+    @genres = Genre.where(genre_status: true)
 
   end
 
