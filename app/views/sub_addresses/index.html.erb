@@ -19,12 +19,10 @@
 <p>郵便番号</p>
 <p>住所</p>
 <p>宛名</p>
-<% @sub_addresses.each do |f| %>
-	<%= f.postal_code %>
-	<%= f.shipping_address %>
-	<%= f.delivery_name %>
-	<%= link_to "編集する", sub_address_path(@sub_address), class: "pull-right", class: "btn btn-warning" %>
-	<%= link_to "削除する", sub_address_path, class: "pull-right", class: "btn btn-warning"  %>
-
-
+<% @sub_addresses.each do |sub_address| %>
+	<%= sub_address.postal_code %>
+	<%= sub_address.shipping_address %>
+	<%= sub_address.delivery_name %>
+	<%= link_to "編集する", sub_address_path(sub_address), class: "pull-right", class: "btn btn-warning" %>
+	<%= link_to "削除する", sub_address_path(sub_address), method: :delete, class: "pull-right", class: "btn btn-warning","data-confirm" => "本当に削除しますか？" %>
 <% end %>

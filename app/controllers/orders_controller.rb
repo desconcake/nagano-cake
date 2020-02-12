@@ -25,11 +25,12 @@ class OrdersController < ApplicationController
   end
 
   def check
-    binding.pry
+    # binding.pry
     @order = Order.find(params[:id])
   end
 
   def create
+    
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
@@ -41,9 +42,9 @@ class OrdersController < ApplicationController
 
   private
 
-  def order_params
-    params.require(:order).permit(:shipping_address, :sale_status, :created_at)
-  end
+  # def order_params
+    # params.require(:order).permit(:shipping_address, :sale_status, :created_at)
+  # end
 
   def item_params
      params.require(:item).permit(:name)
