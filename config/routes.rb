@@ -5,8 +5,13 @@ Rails.application.routes.draw do
         sessions: 'customers/sessions',
         registrations: 'customers/registrations'
       }
+
+
   get 'home/about', to: 'home#about'
-  devise_for :admins
+  devise_for :admins, controllers: {
+        sessions: 'admins/sessions',
+        registrations: 'admins/registrations'
+      }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get '/customers/withdraw', to: 'customers#withdraw'
