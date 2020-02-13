@@ -8,10 +8,12 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.customer_id = current_customer.id
     @cart_item.item_id = @item.id
-    # if
-    #   @cart_item.item_id ==! CartItem.find_by()
-    #   @cart_item.quantity.update
-    @cart_item.save
+    if
+      @cart_item.item_id ==! CartItem.find(current_customer.cart_items.item_id)
+      @cart_item.save
+    else
+      @cart_item.quantity.update
+    end
     redirect_to item_cart_items_path(@cart_item)
   end
 
