@@ -9,9 +9,3 @@ ja:
 
 
 
-
-ja:
-  boolean:
-    genre_status:
-      "false": "無効"
-      "true": "有効"
