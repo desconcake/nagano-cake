@@ -1,9 +1,8 @@
 class Admins::SessionsController < Devise::SessionsController
   def new
   end
-  def create
 
-  	binding.pry
+  def create
   	redirect_to admins_top_path
   end
 end
