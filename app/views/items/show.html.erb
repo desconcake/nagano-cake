@@ -36,7 +36,7 @@
     <%= f.label :"個数選択" %>
     <%= f.select :quantity, [[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]] ,class:"form-control" %>
     <!-- カートに入れる -->
-    <%= f.submit("カートに入れる", class: "btn btn-primary") %>
+    <%= f.submit "カートに入れる", class: "btn btn-primary", data: {"turbolinks" => false}%>
     <% end %>
   </div>
 </div>
