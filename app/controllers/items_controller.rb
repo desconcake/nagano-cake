@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 	# 	@cart_item = CartItem.new(item_params)
 	# 	@cart_item.save
 	# 	redirect_to cart_items_path(current_customer)
-	end
+	# end
 
 	private
 	def item_params
