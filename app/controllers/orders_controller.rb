@@ -20,8 +20,6 @@ class OrdersController < ApplicationController
 
     # if @sub_address.save
 
-
-
   end
 
   def check

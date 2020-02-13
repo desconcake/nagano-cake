@@ -1,11 +1,11 @@
 ja:
-  enums:
-    battle:
-      status:
-        impossible: 着手不可
-        waiting: 製作待ち
-        making: 制作中
-        completed: 製作完了
-
+  # activerecord:
+    enums:
+      OrderItem:
+        create_status:
+          impossible: 着手不可
+          waiting: 製作待ち
+          making: 制作中
+          completed: 製作完了
 
 

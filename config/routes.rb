@@ -6,14 +6,15 @@ Rails.application.routes.draw do
         registrations: 'customers/registrations'
       }
 
-
   get 'home/about', to: 'home#about'
   devise_for :admins, controllers: {
         sessions: 'admins/sessions',
         registrations: 'admins/registrations'
       }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  root to: 'home#top'
+  get '/home/about', to: 'home#about'
+  resources :customers, only:[ :edit, :show, :update, :destroy ]
   get '/customers/withdraw', to: 'customers#withdraw'
   resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ] do
@@ -32,13 +33,7 @@ Rails.application.routes.draw do
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
 	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
 	end
-
-
-  resources :sub_addresses
-  resources :orders, only:[ :index, :show, :new ]
-  get 'orders/check'
-  get 'orders/thanks'
-
+# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
 

@@ -10,24 +10,31 @@ class Admins::ItemsController < ApplicationController
 
 	def new
 		@item = Item.new
-		@genres = Genre.all #セレクトボックス
+		@genres = Genre.all #ジャンルのセレクトボックス
 	end
 
 	def create
 		@item = Item.new(item_params)
 		@item.save
+		redirect_to admins_item_path(@item)
 	end
 
 	def edit
 		@item = Item.find(params[:id])
-		@genres = Genre.all #セレクトボックス
+		@genres = Genre.all #ジャンルのセレクトボックス
 	end
 
 	def update
-		@item.update(item_params)
+		@item = Item.find(params[:id])
+		if   @item.update(item_params)
+     	     flash[:notice] = "You have updated user successfully"
+    	     redirect_to admins_item_path(@item.id)
+    	else render 'edit'
+    	end
 	end
 
+	private
 	def item_params
-	    params.require(:item).permit(:name, :sale_status, :genre_id, :item_image_id, :non_taxed_price, :description)
+	    params.require(:item).permit(:name, :sale_status, :genre_id, :item_image, :non_taxed_price, :description)
 	end
 end

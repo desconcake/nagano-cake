@@ -5,11 +5,11 @@
 
 <body>
   <div class="container">
-    <h2>商品編集画面</h2>
-      <%= form_for @item, url: admins_item_path(@item) do |f| %>
+    <h2>商品新規登録画面</h2>
+      <%= form_for @item, url: admins_items_path do |f| %>
         <div class = "form-group">
             <div class="field">
-             <%= attachment_image_tag @item, :item_image, :fill, 400, 400, fallback: "no_image.png", size: '200x200'  %>
+             <%= attachment_image_tag @item, :item_image, :fill, 200, 200, fallback: "no_image.png", size: '200x200'  %>
               <%= f.attachment_field :item_image %>
             </div>
 
@@ -39,7 +39,7 @@
             </div>
 
             <div class="field">
-              <%= f.submit "編集" %>
+              <%= f.submit "新規登録" %>
             </div>
         </div>
       <% end %>
