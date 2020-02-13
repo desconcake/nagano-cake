@@ -17,6 +17,11 @@ Genre.find_or_create_by(id:4, name: "プリン・ゼリー", genre_status: 1)
 Genre.find_or_create_by(id:5, name: "和菓子", genre_status: 0)
 Genre.find_or_create_by(id:6, name: "アイス", genre_status: 1)
 
+
+
+
+Admin.create(email: 'admin@admin', encrypted_password: 111111)
+
 Item.find_or_create_by(id:1, name: "洋梨のチーズタルト", non_taxed_price: 1200, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:2, name: "ザッハトルテ", non_taxed_price: 2900, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:3, name: "いちごのショートケーキ", non_taxed_price: 500, genre_id: 1, description: "aaa")
@@ -27,3 +32,4 @@ Item.find_or_create_by(id:7, name: "大きな桃のゼリー", non_taxed_price: 
 Item.find_or_create_by(id:8, name: "マカロンセット（8個）", non_taxed_price: 1200, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:9, name: "マカロンセット（16個）", non_taxed_price: 2000, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, genre_id: 1, description: "aaa")
+
