@@ -16,8 +16,9 @@ Rails.application.routes.draw do
 
   get '/customers/withdraw', to: 'customers#withdraw'
   resources :customers, only:[ :edit, :show, :update,:destroy ]
-  resources :items, only:[ :index, :show ]
-  resources :cart_items, only: [ :index, :update, :create, :destroy ]
+  resources :items, only:[ :index, :show ] do
+    resources :cart_items, only: [ :index, :update, :create, :destroy ]
+  end
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
   resources :orders, only:[ :index, :show, :new, :create ]
   get 'orders/check', to: 'orders#check'
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update ]
 
   namespace :admins do
-	  get '/home/top', to: 'home#top'
+    get 'top', to: 'home#top'
 	  resources :orders, only:[ :index, :show, :edit, :update ]
 	  resources :customers, only:[ :index, :show, :edit, :update ]
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
@@ -39,4 +40,6 @@ Rails.application.routes.draw do
   get 'orders/thanks'
 
 end
+
+
 
