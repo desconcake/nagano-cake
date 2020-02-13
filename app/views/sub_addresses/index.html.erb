@@ -1,6 +1,4 @@
-<% if flash[:notice] %>
-   <p><%= flash[:notice] %></p>
-<% end %>
+
 
 
 <h1>配送先登録/一覧</h1>
@@ -12,17 +10,34 @@
 	<p>宛名</p>
 	<%= f.text_field :delivery_name %>
 
-	<%= f.submit "登録する", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+	<br><%= f.submit "登録する", class: "pull-right", class: "btn btn-warning" %>
 <% end %>
 
+<table class="table table-striped" >
+	<thead>
+		<tr>
+			<th>郵便番号</th>
+			<th>住所</th>
+			<th>宛名</th>
+		</tr>
+	</thead>
+	<% @sub_addresses.each do |sub_address| %>
+	<tbody>
+		<tr>
+			<td><%= sub_address.postal_code %></td>
+			<td><%= sub_address.shipping_address %></td>
+			<td><%= sub_address.delivery_name %></td>
+			<td><%= link_to "編集する", sub_address_path(sub_address), class: "pull-right", class: "btn btn-warning" %>    <%= link_to "削除する", sub_address_path(sub_address), method: :delete, class: "pull-right", class: "btn btn-warning","data-confirm" => "本当に削除しますか？" %></td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
 
-<p>郵便番号</p>
-<p>住所</p>
-<p>宛名</p>
-<% @sub_addresses.each do |sub_address| %>
-	<%= sub_address.postal_code %>
-	<%= sub_address.shipping_address %>
-	<%= sub_address.delivery_name %>
-	<%= link_to "編集する", sub_address_path(sub_address), class: "pull-right", class: "btn btn-warning" %>
-	<%= link_to "削除する", sub_address_path(sub_address), method: :delete, class: "pull-right", class: "btn btn-warning","data-confirm" => "本当に削除しますか？" %>
-<% end %>
+
+
+
+
+
+
+
+

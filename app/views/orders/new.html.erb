@@ -13,25 +13,29 @@
 
 
 
+
+
 <p>お届け先</p>
 <h2>ご自身の住所</h2>
 
-<%= f.label  %>
 <%= f.radio_button("1", "radio 1") %>
+<%= "〒" + current_customer.postal_code +  " " + current_customer.address + " " + current_customer.surname + current_customer.name %><br>
 <%= f.radio_button("2", "radio 2") %>
+<%= f.select :address, SubAddress.all.map { |subaddress| ["〒" + subaddress.postal_code + "  " + subaddress.shipping_address +  "  " + subaddress.delivery_name]} %><br>
 
-<%= f.select :order_status, SubAddress.all.map { |f| [postal_code, shipping_address, delivery_name]} %>
+
 
 
 	<%= f.radio_button("3", "radio 3") %>
 		<p>郵便番号</p>
-		<%= f.text_field :postal_code %>
+		<%= f.text_field :postal_code, placeholder: 'ハイフンなし' %>
 		<p>住所</p>
 		<%= f.text_area :shipping_address %>
 		<p>宛名</p>
 		<%= f.text_field :delivery_name %>
 
-<%= f.submit "送信" %>
+
+<%= f.submit "確認画面へ進む", class: "pull-right", class: "btn btn-warning" %>
 
 <% end %>
 

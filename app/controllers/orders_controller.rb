@@ -27,10 +27,19 @@ class OrdersController < ApplicationController
   def check
     # binding.pry
     @order = Order.find(params[:id])
+
+    if @order.valid?
+      render :action => 'check'
+
+    else
+      render :action => 'new'
+      flash[:notice] = '入力漏れがあります。'
+  end
+
   end
 
   def create
-    
+
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save

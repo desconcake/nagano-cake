@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
   get 'orders/check', to: 'orders#check'
   resources :orders, only:[ :index, :show, :new, :create ]
-  
+
   get 'orders/thanks', to: 'orders#thanks'
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]
 
