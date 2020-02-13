@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update ]
 
   namespace :admins do
-	  get '/home/top', to: 'home#top'
+    get 'top', to: 'home#top'
 	  resources :orders, only:[ :index, :show, :edit, :update ]
 	  resources :customers, only:[ :index, :show, :edit, :update ]
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
@@ -35,4 +35,6 @@ Rails.application.routes.draw do
 	end
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
 
