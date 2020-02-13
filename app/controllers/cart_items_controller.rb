@@ -5,16 +5,17 @@ class CartItemsController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    @cart_item = CartItem.new(cart_item_params)
-    @cart_item.customer_id = current_customer.id
-    @cart_item.item_id = @item.id
-    if
-      @cart_item.item_id ==! CartItem.find(current_customer.cart_items.item_id)
-      @cart_item.save
+
+    @cart_item  = current_customer.cart_items.find_by(item_id: params[:item_id])
+    if @cart_item
+      @cart_item.quantity += params[:cart_item][:quantity].to_i
     else
-      @cart_item.quantity.update
+      @cart_item = CartItem.new(cart_item_params)
+      @cart_item.item_id = params[:item_id]
+      @cart_item.customer_id = current_customer.id
     end
-    redirect_to item_cart_items_path(@cart_item)
+      @cart_item.save
+      redirect_to item_cart_items_path(@cart_item)
   end
 
   def edit
