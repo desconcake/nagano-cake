@@ -23,7 +23,7 @@
 
         <div class="col-xs-5 headerNavBox">
           <% if customer_signed_in? %>
-            <%= link_to "My page", customer_path(current_customer_id), class: "col-xs-2 headerNavBtn" %>
+            <%= link_to "My page", customer_path(current_customer.id), class: "col-xs-2 headerNavBtn" %>
             <%= link_to "Cart", cart_items_path, class: "col-xs-2 headerNavBtn" %>
             <%= link_to "About", home_about_path, class: "col-xs-2 headerNavBtn" %>
             <%= link_to "Logout", destroy_customer_session_path, method: :delete, class: "col-xs-2 headerNavBtn" %>

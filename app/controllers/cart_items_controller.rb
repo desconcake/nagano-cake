@@ -4,9 +4,15 @@ class CartItemsController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @cart_item = CartItem.new(cart_item_params)
-    item_id = item.id #必要なカラムに情報を入れてあげる
+    @cart_item.customer_id = current_customer.id
+    @cart_item.item_id = @item.id
+    # if
+    #   @cart_item.item_id ==! CartItem.find_by()
+    #   @cart_item.quantity.update
     @cart_item.save
+    redirect_to item_cart_items_path(@cart_item)
   end
 
   def edit

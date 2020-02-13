@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   resources :customers, only:[ :edit, :show, :update, :destroy ]
   get '/customers/withdraw', to: 'customers#withdraw'
   resources :customers, only:[ :edit, :show, :update,:destroy ]
-  resources :items, only:[ :index, :show ]
-  resources :cart_items, only: [ :index, :update, :create, :destroy ]
+  resources :items, only:[ :index, :show ] do
+    resources :cart_items, only: [ :index, :update, :create, :destroy ]
+  end
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
   resources :orders, only:[ :index, :show, :new, :create ]
   get 'orders/check', to: 'orders#check'

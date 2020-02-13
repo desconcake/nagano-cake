@@ -23,7 +23,12 @@
          <th><%= link_to order.created_at, admins_order_path(order.id) %></th>
          <th><%= order.customer.name %></th>
          <th><%= order.order_item.quantity %></th>
-         <th><%= order.order_status %></th>
+         <th><% if order.order_status == true %>
+              有効
+             <% else %>
+              無効
+             <% end %>
+         </th>
          <% end %>
       </tbody>
     </table>
