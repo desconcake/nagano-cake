@@ -23,16 +23,19 @@
 
         <div class="col-xs-6 headerNavBox">
           <% if customer_signed_in? %>
+          customer
             <%= link_to "My page", customer_path(current_customer.id), class: "col-xs-2 headerNavBtn" %>
             <%= link_to "Cart", item_cart_items_path(current_customer.id), class: "col-xs-2 headerNavBtn" %>
             <%= link_to "About", home_about_path, class: "col-xs-2 headerNavBtn" %>
             <%= link_to "Logout", destroy_customer_session_path, method: :delete, class: "col-xs-2 headerNavBtn" %>
           <% elsif admin_signed_in? %>
+          admin
              <%= link_to "商品一覧", admins_items_path, class: "col-xs-2 headerNavBtn" %>
             <%= link_to "会員一覧", admins_customers_path, class: "col-xs-2 headerNavBtn" %>
             <%= link_to "注文履歴一覧", admins_orders_path, class: "col-xs-2 headerNavBtn" %>
             <%= link_to "ジャンル管理", admins_genres_path, class: "col-xs-2 headerNavBtn" %>
           <% else %>
+          other
             <%= link_to "About", home_about_path, class: "col-xs-3 headerNavBtn" %>
             <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-3 headerNavBtn" %>
             <%= link_to "Login", new_customer_session_path, class: "col-xs-3 headerNavBtn" %>

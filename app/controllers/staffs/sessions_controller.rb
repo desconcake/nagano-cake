@@ -1,6 +1,6 @@
-class Admins::SessionsController < Devise::SessionsController
 # frozen_string_literal: true
 
+class Staffs::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -9,11 +9,9 @@ class Admins::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  def create
-    # super
-    
-  	redirect_to admins_top_path
-  end
+  # def create
+  #   super
+  # end
 
   # DELETE /resource/sign_out
   # def destroy

@@ -5,7 +5,19 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Staff.find_or_create_by(email: 'admin@admin', password: 111111)
+Customer.create!(
+	email: 'test@test.com',
+	password: '111111',
+	surname: '姓',
+	name: '名',
+	surname_kana: '姓カナ',
+	name_kana: '名カナ',
+	phone_number: '09000000000',
+	postal_code: '1600000',
+	address: '東京都渋谷区神南	１丁目',
+	deleted_at: '0'
+)
 
 # Customer.find_or_create_by(id:1, surname: "空条", name: "承太郎", surname_kana: "くうじょう", name_kana: "じょうたろう", email: "aaa@test.jp", encrypted_password:"111111", phone_number:"010-xxx-xxx", postal_code:0000000, address:"東京都渋谷区神南 パークウェースクエア2 1階", customer_status: 0)
 # Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
@@ -20,7 +32,8 @@ Genre.find_or_create_by(id:6, name: "アイス", genre_status: 1)
 
 
 
-Admin.create(email: 'admin@admin', encrypted_password: 111111)
+
+
 
 Item.find_or_create_by(id:1, name: "洋梨のチーズタルト", non_taxed_price: 1200, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:2, name: "ザッハトルテ", non_taxed_price: 2900, genre_id: 1, description: "aaa")

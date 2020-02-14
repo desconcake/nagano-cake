@@ -5,18 +5,19 @@ class Admins::OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
-		@customer = @order.customer
-		@order_items = @order.order_items
-		@items = @order_items.item
+		@orders = @order.order_items
+		@items = @orders.items
+		@subtotal = @items.subtotal #小計
 	end
 
 	def edit
-		@order_status = Order.find(params[:id])
-		@create_status = OrderItems.find(params[:id])
+		@genre = Genre.all
+		@order = Order.find(params[:id])
+		@status = OrderItems.find(params[:id])
 	end
 
 	def update
-		@order_status = Order.update(order_params)
+		@order = Order.update(order_params)
 		@order_items = OrderItems.update(order_params)
 	end
 
