@@ -1,12 +1,12 @@
-class ApplicationController < ActionController::Base
+class Admins::ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
 
 
 	def after_sign_in_path_for(resource)
     # if resource.is_a?(Admin)
-    #   admins_root_path
+      admins_root_path
     # else
-    	items_path
+    	# items_path
   	# end
   end
 

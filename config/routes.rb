@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
 
+ devise_for :staffs, controllers: {
+        sessions: 'staffs/sessions',
+        registrations: 'staffs/registrations'
+      }
+
+
+
   root to: 'home#top'
   devise_for :customers, controllers: {
         sessions: 'customers/sessions',
@@ -26,13 +33,13 @@ Rails.application.routes.draw do
   get 'orders/thanks', to: 'orders#thanks'
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update ]
 
-  namespace :admins do
-    get 'top', to: 'home#top'
-	  resources :orders, only:[ :index, :show, :edit, :update ]
-	  resources :customers, only:[ :index, :show, :edit, :update ]
-	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
-	  resources :genres, only:[ :index, :new, :create, :edit, :update ]
-	end
+ #  namespace :admins do
+ #    get 'top', to: 'home#top'
+	#   resources :orders, only:[ :index, :show, :edit, :update ]
+	#   resources :customers, only:[ :index, :show, :edit, :update ]
+	#   resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
+	#   resources :genres, only:[ :index, :new, :create, :edit, :update ]
+	# end
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

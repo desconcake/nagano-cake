@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+Staff.find_or_create_by(email: 'admin@admin', password: 111111)
 Customer.create!(
 	email: 'test@test.com',
 	password: '111111',
@@ -32,7 +32,8 @@ Genre.find_or_create_by(id:6, name: "アイス", genre_status: 1)
 
 
 
-Admin.create(email: 'admin@admin', encrypted_password: 111111)
+
+
 
 Item.find_or_create_by(id:1, name: "洋梨のチーズタルト", non_taxed_price: 1200, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:2, name: "ザッハトルテ", non_taxed_price: 2900, genre_id: 1, description: "aaa")
