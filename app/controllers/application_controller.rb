@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
 
 
 	def after_sign_in_path_for(resource)
-    # if resource.is_a?(Admin)
-    #   admins_root_path
-    # else
+     if resource.is_a?(Staff)
+       staffs_root_path
+     else
     	items_path
-  	# end
+  	 end
   end
 
   	def after_sign_out_path_for(resource)
