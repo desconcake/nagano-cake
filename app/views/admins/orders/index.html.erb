@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-
-<body>
   <div class="container">
     <h2>注文一覧画面</h2>
   </div>
@@ -19,23 +13,19 @@
       </thead>
 
       <tbody>
-        <% @orders.each do |order| %>
-         <th><%= link_to order.created_at, admins_order_path(order.id) %></th>
-         <th><%= order.customer.name %></th>
-         <th><%= order.order_item.quantity %></th>
-         <th><% if order.order_status == true %>
-              有効
-             <% else %>
-              無効
-             <% end %>
-         </th>
-         <% end %>
+        <tr>
+          <% @orders.each do |order| %>
+           <td><%= link_to order.created_at, admins_order_path(order.id) %></td>
+           <td><%= order.customer.name %></td>
+           <td><%= order.order_item.quantity.count %></td>
+           <td>
+            <% if order.order_status == true %>有効
+            <% else %>無効
+            <% end %>
+           </td>
+          <% end %>
+       </tr>
       </tbody>
     </table>
   </div>
 
-<footer>
-</footer>
-
-</body>
-</html>
