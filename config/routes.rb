@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   namespace :staffs do
-     get 'home/top', to: 'home#top'
+     root to: 'home#top'
      resources :orders, only:[ :index, :show, :edit, :update ]
      resources :customers, only:[ :index, :show, :edit, :update ]
      resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
