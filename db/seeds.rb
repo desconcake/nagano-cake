@@ -5,24 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-Staff.find_or_create_by(email: 'admin@admin', password: 111111)
-# Customer.create!(
-# 	email: 'test@test.com',
-# 	password: '111111',
-# 	surname: '姓',
-# 	name: '名',
-# 	surname_kana: '姓カナ',
-# 	name_kana: '名カナ',
-# 	phone_number: '09000000000',
-# 	postal_code: '1600000',
-# 	address: '東京都渋谷区神南	１丁目',
-# 	deleted_at: '0'
-# )
-
-
-# Customer.find_or_create_by(id:1, surname: "空条", name: "承太郎", surname_kana: "くうじょう", name_kana: "じょうたろう", email: "aaa@test.jp", encrypted_password:"111111", phone_number:"010-xxx-xxx", postal_code:0000000, address:"東京都渋谷区神南 パークウェースクエア2 1階", customer_status: 0)
-# Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
+Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "11@11", password: "1111111")
+Staff.create(email: 'admin@admin', password: 111111)
+Order.create!(id:1, :customer_id => 1, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 1)
 
 Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
@@ -30,12 +15,6 @@ Genre.find_or_create_by(id:3, name: "チョコレート", genre_status: 1)
 Genre.find_or_create_by(id:4, name: "プリン・ゼリー", genre_status: 1)
 Genre.find_or_create_by(id:5, name: "和菓子", genre_status: 0)
 Genre.find_or_create_by(id:6, name: "アイス", genre_status: 1)
-
-
-
-
-
-
 
 Item.find_or_create_by(id:1, name: "洋梨のチーズタルト", non_taxed_price: 1200, genre_id: 1, description: "aaa")
 Item.find_or_create_by(id:2, name: "ザッハトルテ", non_taxed_price: 2900, genre_id: 1, description: "aaa")
@@ -50,3 +29,6 @@ Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, 
 
 # OrderItem.find_or_create_by(id:1, order_id:1, item_id:2, order_quantity:1, tax_included_price:500, create_status:0)
 # Order.find_or_create_by(id:1, customer_id: 1, billing_amount: 2000, postage:800, method_of_payment: 0, order_status: 1, delivery_name: "ぺんたろう", shipping_address: "南極の氷上", postale_code: 0000000)
+OrderItem.create!(id:1, order_id: 1, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
+OrderItem.create!(id:2, order_id: 1, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
+OrderItem.create!(id:3, order_id: 1, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
