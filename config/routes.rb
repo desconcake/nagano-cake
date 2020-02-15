@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+get '/customers/withdraw', to: 'customers#withdraw'
 
   namespace :staffs do
      root to: 'home#top'
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
      resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
      resources :genres, only:[ :index, :new, :create, :edit, :update ]
    end
+
 
  devise_for :staffs, controllers: {
         sessions: 'staffs/sessions',
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
   root to: 'home#top'
   get '/home/about', to: 'home#about'
   resources :customers, only:[ :edit, :show, :update, :destroy ]
-  get '/customers/withdraw', to: 'customers#withdraw'
   resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ] do
     resources :cart_items, only: [ :index, :update, :create, :destroy ]
