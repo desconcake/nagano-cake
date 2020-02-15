@@ -19,14 +19,15 @@ Rails.application.routes.draw do
   resources :items, only:[ :index, :show ]
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
-  get 'orders/check', to: 'orders#check'
+
   resources :orders, only:[ :index, :show, :new, :create ]
+  post 'orders/check', to: 'orders#check'
 
   get 'orders/thanks', to: 'orders#thanks'
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]
 
   namespace :admins do
-	  get '/home/top', to: 'home#top'
+    get 'top', to: 'home#top'
 	  resources :orders, only:[ :index, :show, :edit, :update ]
 	  resources :customers, only:[ :index, :show, :edit, :update ]
 	  resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
@@ -37,7 +38,7 @@ Rails.application.routes.draw do
 
   resources :sub_addresses
   resources :orders, only:[ :index, :show, :new ]
-  get 'orders/check'
+
   get 'orders/thanks'
 
 end

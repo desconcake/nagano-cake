@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = current_customer.orders
+    # @order_items = @orders.order_items
     # @items = Item.all(params[:id])
 
   end
@@ -8,7 +9,7 @@ class OrdersController < ApplicationController
   def show
     # @order = Order.find(params[:id])
     # @customer.id = current_customer.id
-    @item = @orders.order_items.items
+    # @item = @orders.order_items.items
   end
 
   def new
@@ -26,15 +27,19 @@ class OrdersController < ApplicationController
 
   def check
     # binding.pry
-    @order = Order.find(params[:id])
+    @order = Order.new(order_params)
+    @order.shipping_address = params[:order][:address]
+    @order.shipping_address = params[:order][:address]
+    @order.postale_code = params[:order][:postale_code]
+    # @order.shipping_address = params[:shipping_address]
 
-    if @order.valid?
-      render :action => 'check'
+    # if @order.valid?
+      # render :action => 'check'
 
-    else
-      render :action => 'new'
-      flash[:notice] = '入力漏れがあります。'
-  end
+    # else
+      # render :action => 'new'
+      # flash[:notice] = '入力漏れがあります。'
+  # 　end
 
   end
 
@@ -51,9 +56,9 @@ class OrdersController < ApplicationController
 
   private
 
-  # def order_params
-    # params.require(:order).permit(:shipping_address, :sale_status, :created_at)
-  # end
+   def order_params
+    params.require(:order).permit(:customer_id, :delivery_name, :postale_code, :shipping_address, :method_of_payment, :postage, :billing_amount)
+  end
 
   def item_params
      params.require(:item).permit(:name)
@@ -62,6 +67,8 @@ class OrdersController < ApplicationController
   def customer_params
      params.require(:customer).permit(:delivery_name, :postal_code, :shipping_address)
   end
+
+
 
 
 

@@ -15,3 +15,12 @@ ja:
     genre_status:
       "false": "無効"
       "true": "有効"
+
+
+
+
+ja:
+  boolean:
+    genre_status:
+      "false": "銀行振込"
+      "true": "クレジットカード"
