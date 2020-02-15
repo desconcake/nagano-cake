@@ -1,5 +1,5 @@
 class Staffs::OrdersController < ApplicationController
-  	def index
+	def index
 		@orders = Order.all
 	end
 
@@ -26,4 +26,3 @@ class Staffs::OrdersController < ApplicationController
 	    params.require(:order).permit(:shipping_address, :order_status, :method_of_payment)
 	    params.require(:order_item).premit(:order_quantity, :tax_inckluded_price, :create_status)
 	end
-end
