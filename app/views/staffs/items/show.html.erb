@@ -1,46 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-
-<body>
+<div class="body">
   <div class="container">
-    <h2>商品画面</h2>
-
-    <tr><%= attachment_image_tag @item, :item_image, :fill, 200, 200, fallback: "no_image.png", size: '200x200'  %></tr>
-	<div class='row'>
-    <table class='table'>
-          <tr>
-            <th>商品名</th>
-            <th><%= @item.name %></th>
-          </tr>
-          <tr>
-            <th>商品説明</th>
-            <th><%= @item.description %></th>
-          </tr>　
-          <tr>
-            <th>ジャンル</th>
-            <th><%= @item.genre.name %></th>
-          </tr>
-          <tr>
-            <th>税込価格（税抜価格）</th>
-            <th><%= @item.priceWithTax.to_i %>(<%= @item.non_taxed_price.to_i %>)円</th>
-          </tr>
-          <tr>
-          <th>販売ステータス</th>
-            <th><%= @item.sale_status %></th>
-          </tr>
-    </table>
-
-    <div class= "row">
-        <th> <%= link_to 'edit', edit_staffs_item_path(@item) %></th>
+    <h2>商品詳細画面</h2>
+    <div class="row">
+      <div class="col-xs-4">
+          <%= attachment_image_tag @item, :item_image, :fill, 300, 300, fallback: "no_image.png", size: '300x200'  %>
+      </div>
+      <div class="col-xs-8">
+        <table class='table'>
+              <tr>
+                <th>商品名</th>
+                <th><%= @item.name %></th>
+              </tr>
+              <tr>
+                <th>商品説明</th>
+                <th><%= @item.description %></th>
+              </tr>　
+              <tr>
+                <th>ジャンル</th>
+                <th><%= @item.genre.name %></th>
+              </tr>
+              <tr>
+                <th>税込価格（税抜価格）</th>
+                <th><%= @item.priceWithTax.to_i %>(<%= @item.non_taxed_price.to_i %>)円</th>
+              </tr>
+              <tr>
+              <th>販売ステータス</th>
+              <th>
+              　<% if @item.sale_status == true %>
+                販売中
+                <% else %>
+                売り切れ
+                <% end %>
+              </th>
+              </tr>
+        </table>
+        <div class="pull-right">
+          <button type="button" class="btn btn-default btn-lg">
+            <%= link_to '編集する', edit_staffs_item_path(@item) %>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-<footer>
-</footer>
-
-</body>
-</html> 
-
-
-
+</div>
