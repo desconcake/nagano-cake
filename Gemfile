@@ -70,4 +70,5 @@ gem 'jquery-rails'
 gem 'paranoia'
 gem 'enum_help'
 gem 'pry-byebug'
+gem 'rails-i18n', '~> 5.1'
 
