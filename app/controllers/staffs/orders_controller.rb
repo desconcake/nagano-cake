@@ -1,13 +1,13 @@
 class Staffs::OrdersController < ApplicationController
-	def  index
+	def index
 		@orders = Order.all
 	end
 
 	def show
 		@order = Order.find(params[:id])
-		@orders = @order.order_items
-		@items = @orders.items
-		@subtotal = @items.subtotal #小計
+		# @orders = @order.order_items
+		# @items = @orders.items
+		# @subtotal = @items.subtotal #小計
 	end
 
 	def edit
