@@ -27,3 +27,4 @@ class Admins::OrdersController < ApplicationController
 	    params.require(:order_item).premit(:order_quantity, :tax_inckluded_price, :create_status)
 	end
 end
+ 

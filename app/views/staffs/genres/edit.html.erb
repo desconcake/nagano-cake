@@ -1,2 +1,17 @@
-<h1>Staffs::Genres#edit</h1>
-<p>Find me in app/views/staffs/genres/edit.html.erb</p>
+<div class="genre-edit container">
+	<div class="row">
+		<div class="col-xs-6">
+			<div class="">
+				<h1>ジャンル編集画面</h1>
+				<%= form_for @genre, url: staffs_genre_path(@genre) do |f| %>
+				<div class="genre-create">ジャンル
+					<%= f.text_field :name %>
+					<label><%= f.radio_button :genre_status, :true %>有効</label>
+					<label><%= f.radio_button :genre_status, :false %>無効</label>
+					<%= f.submit "変更を保存する", class: "btn btn-primary" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 

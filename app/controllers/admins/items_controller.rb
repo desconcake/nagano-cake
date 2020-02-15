@@ -1,6 +1,6 @@
 class Admins::ItemsController < ApplicationController
 	def index
-		@items = Item.all
+		@items = Item.all 
 	end
 
 	def show
@@ -38,3 +38,4 @@ class Admins::ItemsController < ApplicationController
 	    params.require(:item).permit(:name, :sale_status, :genre_id, :item_image, :non_taxed_price, :description)
 	end
 end
+  
