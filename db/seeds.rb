@@ -8,6 +8,9 @@
 
 # Customer.find_or_create_by(id:1, surname: "空条", name: "承太郎", surname_kana: "くうじょう", name_kana: "じょうたろう", email: "aaa@test.jp", encrypted_password:"111111", phone_number:"010-xxx-xxx", postal_code:0000000, address:"東京都渋谷区神南 パークウェースクエア2 1階", customer_status: 0)
 # Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
+OrderItem.find_or_create_by(id:1, order_id:1, item_id:2, order_quantity:1, tax_included_price:500, create_status:0)
+
+Order.find_or_create_by(id:1, customer_id: 1, billing_amount: 2000, postage:800, method_of_payment: 0, order_status: 1, delivery_name: "ぺんたろう", shipping_address: "南極の氷上", postale_code: 0000000)
 
 Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
@@ -29,5 +32,3 @@ Item.find_or_create_by(id:8, name: "マカロンセット（8個）", non_taxed_
 Item.find_or_create_by(id:9, name: "マカロンセット（16個）", non_taxed_price: 2000, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, genre_id: 1, description: "aaa")
 
-OrderItem.find_or_create_by(id:1, order_id:1, item_id:2, order_quantity:1, tax_included_price:500, create_status:0)
-Order.find_or_create_by(id:1, customer_id: 1, billing_amount: 2000, postage:800, method_of_payment: 0, order_status: 1, delivery_name: "ぺんたろう", shipping_address: "南極の氷上", postale_code: 0000000)
