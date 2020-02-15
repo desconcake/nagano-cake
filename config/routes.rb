@@ -1,27 +1,15 @@
 Rails.application.routes.draw do
 
+
+
   namespace :staffs do
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :staffs do
-    get 'items/index'
-    get 'items/show'
-    get 'items/new'
-    get 'items/edit'
-  end
-  namespace :staffs do
-    get 'home/top'
-  end
-  namespace :staffs do
-    get 'genres/index'
-    get 'genres/edit'
-  end
-  namespace :staffs do
-    get 'customers/index'
-    get 'customers/show'
-    get 'customers/edit'
-  end
+     get 'home/top', to: 'home#top'
+     resources :orders, only:[ :index, :show, :edit, :update ]
+     resources :customers, only:[ :index, :show, :edit, :update ]
+     resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
+     resources :genres, only:[ :index, :new, :create, :edit, :update ]
+   end
+
  devise_for :staffs, controllers: {
         sessions: 'staffs/sessions',
         registrations: 'staffs/registrations'

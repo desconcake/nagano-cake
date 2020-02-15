@@ -24,7 +24,7 @@
          <th><%= item.id %></th>
          <th><%= link_to item.name, staffs_item_path(item.id) %></th>
          <th><%= item.genre.name %></th>
-         <th><%= item.sale_status.i18n %></th>
+         <th><%= item.sale_status %></th>
          <% end %>
       </tbody>
     </table>

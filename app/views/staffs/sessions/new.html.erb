@@ -4,15 +4,14 @@
       <div class="">
 
 
-
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           <div class="field">
-            <%= f.label :メールアドレス %>
+            <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
           </div>
 
           <div class="field">
-            <%= f.label :パスワード %>
+            <%= f.label :password %><br />
             <%= f.password_field :password, autocomplete: "current-password" %>
           </div>
 
@@ -22,10 +21,8 @@
           </div>
         <% end %>
 
-        <%#<%= render "admins/shared/links" %>
- 
+        <%#<%= render "staffs/shared/links" %>
       </div>
     </div>
   </div>
 </div>
-
