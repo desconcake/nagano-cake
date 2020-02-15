@@ -35,6 +35,9 @@ Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, 
 
 # OrderItem.find_or_create_by(id:1, order_id:1, item_id:2, order_quantity:1, tax_included_price:500, create_status:0)
 # Order.find_or_create_by(id:1, customer_id: 1, billing_amount: 2000, postage:800, method_of_payment: 0, order_status: 1, delivery_name: "ぺんたろう", shipping_address: "南極の氷上", postale_code: 0000000)
+<<<<<<< HEAD
 OrderItem.create!(id:1, order_id: 1, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
 OrderItem.create!(id:2, order_id: 1, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
 OrderItem.create!(id:3, order_id: 1, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
+=======
+>>>>>>> pen
