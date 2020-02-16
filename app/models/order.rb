@@ -6,6 +6,10 @@ class Order < ApplicationRecord
 
 	enum order_status: {waiting: 0, varification: 1, production: 2, preparing: 3, sent: 4}
 	def postage
-		postage == 800
+		postage = 800
 	end
+
+	def orderAddress
+		postale_code+shipping_address+delivery_name
+  	end
 end

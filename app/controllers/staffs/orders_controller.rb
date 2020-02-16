@@ -1,6 +1,10 @@
 class Staffs::OrdersController < ApplicationController
 	def index
 		@orders = Order.all
+		# @total = 0
+		# @orders.order_items.each do |order|
+		# 	@total += order.order_quantity
+		# end
 	end
 
 	def show
