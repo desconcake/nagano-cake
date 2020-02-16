@@ -29,5 +29,6 @@ class Staffs::OrdersController < ApplicationController
 	def order_params
 	    params.require(:order).permit(:shipping_address, :order_status, :method_of_payment)
 	    params.require(:order_item).premit(:order_quantity, :tax_inckluded_price, :create_status)
+	    params.require(:plase)
 	end
 end
