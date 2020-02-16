@@ -5,6 +5,10 @@ class Staffs::OrdersController < ApplicationController
 		# @orders.order_items.each do |order|
 		# 	@total += order.order_quantity
 		# end
+		# if params[:place] == "top"
+		# elsif params[:id] == customer_params[:id]
+		# else @order = Order.all
+		# end
 	end
 
 	def show
@@ -22,7 +26,6 @@ class Staffs::OrdersController < ApplicationController
 
 	def update
 		@order = Order.update(order_params)
-		@order_items = OrderItems.update(order_params)
 	end
 
 	private
