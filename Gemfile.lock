@@ -341,7 +341,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   enum_help
-  enum_select_rails
+  enum_select_rails (~> 0.3.0)
   jbuilder (~> 2.5)
   jquery-rails
   kaminari (~> 1.1.1)
