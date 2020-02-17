@@ -14,22 +14,15 @@ ja:
         preparing: 発送準備中
         sent: 発送済
 
+# ja:
+#   boolean:
+#     genre_status:
+#       "false": "無効"
+#       "true": "有効"
 
-
-
-
-ja:
-  boolean:
-    genre_status:
-      "false": "無効"
-      "true": "有効"
-
-
-
-
-ja:
-  boolean:
-    genre_status:
-      "false": "銀行振込"
-      "true": "クレジットカード"
+# ja:
+#   boolean:
+#     genre_status:
+#       "false": "銀行振込"
+#       "true": "クレジットカード"
 
