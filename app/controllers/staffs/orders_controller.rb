@@ -25,13 +25,24 @@ class Staffs::OrdersController < ApplicationController
 	end
 
 	def update
-		@order = Order.update(order_params)
+		@order = Order.find(params[:id])
+		@order.update(order_params)
+		redirect_to staffs_order_path(@order)
 	end
-
+	def item_update
+		order_item = OrderItem.find(params[:id])
+		order_item.update(order_item_params)
+		redirect_to staffs_order_path(order_item.order.id)
+	end
 	private
 	def order_params
 	    params.require(:order).permit(:shipping_address, :order_status, :method_of_payment)
-	    params.require(:order_item).premit(:order_quantity, :tax_inckluded_price, :create_status)
-	    params.require(:plase)
+	    # params.require(:order_item).premit(:order_quantity, :tax_inckluded_price, :create_status)
+	end
+	def order_item_params
+		params.require(:order_item).permit(:create_status)
+	end
+	def place
+		params.require(:plase)
 	end
 end

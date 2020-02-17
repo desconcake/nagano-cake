@@ -4,6 +4,8 @@ get '/customers/withdraw', to: 'customers#withdraw'
 
   namespace :staffs do
      root to: 'home#top'
+     #put 'orders/item/:id', to:'orders#item_update', as:'order_item'
+     patch 'orders/item/:id', to:'orders#item_update', as:'order_item'
      resources :orders, only:[ :index, :show, :edit, :update ]
      resources :customers, only:[ :index, :show, :edit, :update ]
      resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
