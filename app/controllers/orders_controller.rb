@@ -7,7 +7,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    # @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
+    @order_item = OrderItem.find(params[:id])
     # @customer.id = current_customer.id
     # @item = @orders.order_items.items
   end
@@ -26,20 +27,21 @@ class OrdersController < ApplicationController
   end
 
   def check
+    if params[:method_of_payment] == "true"
+    else
+    "false"
+
+    end
     # binding.pry
-    @order = Order.new(order_params)
-    @order.shipping_address = params[:order][:address]
-    @order.shipping_address = params[:order][:address]
-    @order.postale_code = params[:order][:postale_code]
-    # @order.shipping_address = params[:shipping_address]
-
-    # if @order.valid?
-      # render :action => 'check'
-
-    # else
-      # render :action => 'new'
-      # flash[:notice] = '入力漏れがあります。'
-  # 　end
+    # if radio_num == "1"
+      # @address = params[:address]
+    # elsif radio_num == "2"
+      # @address = params[:sub_address]
+    # elsif radio_num == "3"
+      # @address = params[:new_sub_address]
+    # end
+    #binding.pry
+    #@order.shipping_address = params[:address]
 
   end
 
@@ -48,6 +50,17 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    a = params[:order][:address]
+    #binding.pry
+    b = a.split
+    @order = Order.new(order_params)
+    @order.postale_code = b[0]
+    @order.shipping_address = b[1]
+    @order.delivery_name = b[2]
+    @order.postage = 800
+    #binding.pry
+    @order.customer_id = current_customer.id
+    @order_items = OrderItem.where(order_id: @order.id)
   end
 
   def thanks

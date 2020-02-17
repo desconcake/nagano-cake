@@ -2,20 +2,17 @@
 <%= form_with url: orders_thanks_path,method: :get ,local: true do |f| %>
 <p>支払方法</p>
 <%= f.hidden_field :method_of_payment %>
-<% if @order.method_of_payment == "true" %>
+<% method_of_payment == "true" %>
 クレジットカード
 <% else %>
 銀行振込
 <% end %>
 
-
-<% f.hidden_field :address %>
-<%= if "〒" + current_customer.postal_code +  "  " + current_customer.address + "  " + current_customer.surname + current_customer.name %>
-
-
-
-
-
-
-
 <% end %>
+
+
+
+
+
+
+

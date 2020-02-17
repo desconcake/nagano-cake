@@ -1,11 +1,20 @@
 ja:
-  enums:
-    battle:
-      status:
-        impossible: 着手不可
-        waiting: 製作待ち
-        making: 制作中
-        completed: 製作完了
+    enums:
+      OrderItem:
+        create _status:
+          impossible: 着手不可
+          waiting: 製作待ち
+          making: 制作中
+          completed: 製作完了
+    enums:
+    Order:
+      order_status:
+        waiting: 入金待ち
+        varification: 入金確認
+        production: 制作中
+        preparing: 発送準備中
+        sent: 発送済
+
 
 
 
@@ -24,3 +33,4 @@ ja:
     genre_status:
       "false": "銀行振込"
       "true": "クレジットカード"
+
