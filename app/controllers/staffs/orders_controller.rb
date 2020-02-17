@@ -1,13 +1,13 @@
 class Staffs::OrdersController < ApplicationController
   	def index
 		if
-			params[:place] == "top"
-		@orders_count = Order.where(created_at: Date.current.beginning_of_day)
-  		.order("DAY(created_at)")
-  		.count
-  		else
+		# 	params[:place] == "top"
+		# @orders_count = Order.where(created_at: Date.current.beginning_of_day)
+  # 		.order("DAY(created_at)")
+  # 		.count
+  # 		else
   			@orders = Order.all
-  		end
+  		# end
 	end
 
 	def show
