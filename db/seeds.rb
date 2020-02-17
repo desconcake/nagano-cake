@@ -14,11 +14,9 @@ Customer.create(id:2, surname: "ぺん", name: "太郎", surname_kana: "ペン",
 Customer.create(id:3, surname: "こうぺん", name: "ちゃん", surname_kana: "コウペン", name_kana: "チャン", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "13@13", password: "3333333")
 
 Staff.create(email: 'admin@admin', password: 111111)
-Order.create(id:1, :customer_id => 1, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 'waiting')
-# Order.create!(id:2, :customer_id => 2, :billing_amount => 10000, :postage => 800, :method_of_payment => false, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 'waiting')
-# Order.create!(id:3, :customer_id => 3, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 'waiting')
-
-Admin.create(email: 'admin@admin', password: 111111)
+Order.create(id:1, :customer_id => 1, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postal_code => 1600000, :order_status => 'waiting')
+# Order.create!(id:2, :customer_id => 2, :billing_amount => 10000, :postage => 800, :method_of_payment => false, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postal_code => 1600000, :order_status => 'waiting')
+# Order.create!(id:3, :customer_id => 3, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postal_code => 1600000, :order_status => 'waiting')
 
 Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)

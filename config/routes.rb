@@ -42,10 +42,10 @@ Rails.application.routes.draw do
 
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
 
-  resources :orders, only:[ :index, :show, :new, :create ]
-  post 'orders/check', to: 'orders#check'
+  get 'orders/check', to: 'orders#check'
   get 'orders/thanks', to: 'orders#thanks'
-  resources :sub_addresses
+  resources :orders, only:[ :index, :show, :new, :create ]
+  resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
