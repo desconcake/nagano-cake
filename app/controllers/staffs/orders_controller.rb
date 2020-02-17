@@ -5,16 +5,10 @@ class Staffs::OrdersController < ApplicationController
             .order("created_at")
         	@orders_count = @orders.count
         elsif
-		 	params[:id] == customer_id
-		   	@orders = customer.order.where(params[:id])
+		 	params[:id] == params[:customer_id]
+		 	@customer = Customer.find(params[:id])
+		   	@orders = @customer.order
 		else   @orders = Order.all
-		# @total = 0
-		# @orders.order_items.each do |order|
-		# 	@total += order.order_quantity
-		# end
-		# if params[:place] == "top"
-		# elsif params[:id] == customer_params[:id]
-		# else @order = Order.all
 		end
 	end
 
