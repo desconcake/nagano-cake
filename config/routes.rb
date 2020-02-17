@@ -21,10 +21,10 @@ Rails.application.routes.draw do
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   end
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
-
+  get 'orders/thanks', to: 'orders#thanks'
   resources :orders, only:[ :index, :show, :new, :create ]
   post 'orders/check', to: 'orders#check'
-  get 'orders/thanks', to: 'orders#thanks'
+
 
 
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]

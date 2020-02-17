@@ -8,14 +8,14 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @order_item = OrderItem.find(params[:id])
+    # @order_item = OrderItem.find(params[:id])
     # @customer.id = current_customer.id
     # @item = @orders.order_items.items
   end
 
   def new
     @order = Order.new
-    @sub_addresses = SubAddress.all
+    # @sub_addresses = current_customer.sub_addresses
     # @sub_addresses = @order.sub_addresses
     # @sub_addresses = SubAddress.find(params[:id])
     @sub_address = SubAddress.new
@@ -64,7 +64,6 @@ class OrdersController < ApplicationController
   end
 
   def thanks
-    @order = Order.find(params[:id])
   end
 
   private

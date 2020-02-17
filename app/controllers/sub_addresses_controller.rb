@@ -18,7 +18,7 @@ class SubAddressesController < ApplicationController
       redirect_to sub_addresses_path
     else
       flash[:notice] = '入力し切れていませんでした。'
-      @sub_addresses = SubAddress.all
+      @sub_addresses = current_customer.sub_addresses
       render 'index'
     end
   end
@@ -30,6 +30,7 @@ class SubAddressesController < ApplicationController
       redirect_to sub_addresses_path(params[:id])
     else
       flash[:notice] = '入力し切れていませんでした。'
+      @sub_addresses = current_customer.sub_addresses
       render 'index'
   end
 end
