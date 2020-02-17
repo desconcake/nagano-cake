@@ -61,6 +61,7 @@ class OrdersController < ApplicationController
     #binding.pry
     @order.customer_id = current_customer.id
     @order_items = OrderItem.where(order_id: @order.id)
+
   end
 
   def thanks

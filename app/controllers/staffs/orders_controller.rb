@@ -1,13 +1,13 @@
 class Staffs::OrdersController < ApplicationController
   	def index
-		if
-		# 	params[:place] == "top"
-		# @orders_count = Order.where(created_at: Date.current.beginning_of_day)
-  # 		.order("DAY(created_at)")
-  # 		.count
-  # 		else
+		if params[:place] && params[:place] == 'top'
+
+		 @orders = Order.where(created_at: Date.current.all_day)
+   		 .order("created_at")
+   		@orders_count = @orders.count
+   		else
   			@orders = Order.all
-  		# end
+  		end
 	end
 
 	def show
@@ -32,7 +32,10 @@ class Staffs::OrdersController < ApplicationController
 	def order_params
 	    params.require(:order).permit(:shipping_address, :order_status, :method_of_payment)
 	    params.require(:order_item).premit(:order_quantity, :tax_inckluded_price, :create_status)
-	    params.require(:place).permit("top")
+	end
+
+	def place_params
+		params.require(:place).permit("top")
 	end
 end
 

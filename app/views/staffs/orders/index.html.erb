@@ -19,18 +19,21 @@
       </thead>
 
       <tbody>
-        <% @orders.each do |order| %>
-         <th><%= link_to order.created_at, staffs_order_path(order.id) %></th>
-         <th><%= order.customer.name %></th>
-         <th><%= order.order_item.quantity %></th>
-         <th><% if order.order_status == true %>
-              有効
-             <% else %>
-              無効
-             <% end %>
-         </th>
-         <% end %>
-      </tbody>
+        <tr>
+            <% @orders.each do |order| %>
+               <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), staffs_order_path(order.id) %></td>
+               <td><%= order.customer.surname + order.customer.name  %></td>
+               <td>
+                <% total = 0 %>
+                <% order.order_items.each do |item| %>
+                <% total += item.order_quantity %>
+                <% end  %>
+                <%= total %>
+                </td>
+               <td><%= order.order_status %></td>
+            <% end %>
+        </tr>
+        </tbody>
     </table>
   </div>
 
