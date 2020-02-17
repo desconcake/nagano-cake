@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :genre
 # 　enum status: { invalid: false, available: true }
   def priceWithTax
-    non_taxed_price * 1.08
+    non_taxed_price * 1.1
   end
 end
 

@@ -71,4 +71,5 @@ gem 'paranoia'
 gem 'enum_help'
 gem 'pry-byebug'
 gem 'rails-i18n', '~> 5.1'
+gem 'enum_select_rails', '~> 0.3.0'
 

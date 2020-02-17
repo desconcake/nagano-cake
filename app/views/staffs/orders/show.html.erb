@@ -1,0 +1,82 @@
+<div class="container">
+  <h2>注文詳細画面</h2>
+  <table class='table'>
+        <tr>
+          <th>購入者</th>
+          <th><%= @order.customer.fullName %></th>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <th>〒<%= @order.orderAddress %></th>
+        </tr>
+        <tr>
+          <th>支払い方法</th>
+          <th>
+            <% if @order.method_of_payment == true  %>銀行振り込み
+            <% else %>クレジットカード
+            <% end %>
+          </th>
+        </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <th>
+            <div class="field">
+              <%= form_for(@order,url:staffs_order_path(@order)) do |f| %>
+                <%= f.select :order_status, Order.order_statuses.map {|k, v| [t("enums.order.order_status.#{k}"), k]} %>
+                <%= f.submit "更新" %>
+              <% end %>
+          </th>
+        </tr>
+  </table>
+
+    <div class='row'>
+        <div class='col-xs-9'>
+        <table class='table table-hover table-inverse'>
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価（税込）</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @order.order_items.each do |item|  %>
+            <tr>
+              <th><%= item.item.name %></th>
+              <th><%= item.tax_included_price.to_s(:delimited) %></th>
+              <th><%= item.order_quantity %></th>
+              <th><%= (item.tax_included_price * item.order_quantity.to_i).to_s(:delimited) %></th>
+              <%= form_for(item, url: staffs_order_item_path(item.id)) do |f| %>
+                <th>
+                  <%= f.select :create_status, OrderItem.create_statuses.map {|k, v| [t("enums.order_item.create_status.#{k}"), k]} %>
+                  <%= f.submit "更新" %>
+                </th>
+              <% end %>
+
+            <% end %>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class='col-xs-3'>
+      <table class='table'>
+        <tr>
+          <th>合計金額</th>
+          <th><%= (@order.billing_amount - @order.postage.to_i).to_s(:delimited) %>円</th>
+        </tr>
+        <tr>
+          <th>送料</th>
+          <th><%= (@order.postage.to_i).to_s(:delimited) %>円</th>
+        </tr>　
+        <tr>
+          <th>請求額合計</th>
+          <th><%= (@order.billing_amount.to_i).to_s(:delimited) %>円</th>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

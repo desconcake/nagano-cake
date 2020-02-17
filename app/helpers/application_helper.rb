@@ -1,13 +1,13 @@
 module ApplicationHelper
 	def resource
-	   @resource ||= Admin.new
+	   @resource ||= Staff.new
 	end
 	def resource_name
-   		:admin
+   		:staff
 	end
 
 	def devise_mapping
-   		@devise_mapping ||= Devise.mappings[:admin]
+   		@devise_mapping ||= Devise.mappings[:staff]
 	end
 
 

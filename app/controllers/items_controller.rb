@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
 
+
 	def index
 	    @items = Item.page(params[:page]).reverse_order
 	    @genres = Genre.where(genre_status: true)
