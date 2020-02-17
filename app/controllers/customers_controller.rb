@@ -9,9 +9,7 @@ class CustomersController < ApplicationController
 
   def withdraw
      @customer = current_customer
-
   end
-
 
   def update
     @customer = current_customer
