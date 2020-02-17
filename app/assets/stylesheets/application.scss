@@ -43,7 +43,6 @@ body{
 .header {
   height: 60px;
   margin-bottom: 50px;
-  position: relative;
 }
 
 .header_logo {
@@ -58,20 +57,21 @@ a:active{
   text-decoration:none;/* underline */
 }
 
-.headerNavBox{
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 .headerNavBtn{
-    text-align:center;
-    height:4em;
-    line-height:4em;
-    color: #6f5436;
-    font-size:16px;
+  text-align:center;
+  height:4em;
+  line-height:4em;
+  color: #6f5436;
+  font-size:18px;
 }
 
+.login_name {
+  text-align:center;
+  height:6.5em;
+  line-height:6.5em;
+  color: #6f5436;
+  font-size:12px;
+}
 /*.headerNavBtn:hover{
     color: #EEE;
 }*/
@@ -80,6 +80,12 @@ a:active{
   height: 60px;
   line-height: 60px;
   padding: 0;
+}
+
+.flash {
+  color: #84c1ff;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 #footer {

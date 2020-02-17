@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   resources :customers, only:[ :edit, :show, :update, :destroy ]
   resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ] do
+    member do
+      get :devide
+    end
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   end
 
