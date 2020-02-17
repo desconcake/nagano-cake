@@ -10,3 +10,11 @@
 .order_count {
 	margin-left: 100px;
 }
+
+
+	/*params[:place] == "top"
+		@orders_count = Order.where(created_at: Date.current.beginning_of_day)
+  		.order("DAY(created_at)")
+  		.count
+  		elsif params[:id] == customer_params[:id]
+  		else @order = Order.all*/

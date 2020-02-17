@@ -5,8 +5,9 @@ class Staffs::OrdersController < ApplicationController
 		@orders_count = Order.where(created_at: Date.current.beginning_of_day)
   		.order("DAY(created_at)")
   		.count
-  		elsif params[:id] == customer_params[:id]
-  		else @order = Order.all
+  		else
+  			@orders = Order.all
+  		end
 	end
 
 	def show

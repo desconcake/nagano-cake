@@ -23,6 +23,16 @@ class Admins::GenresController < ApplicationController
   	@genre = Genre.find(params[:id])
   end
 
+<<<<<<< HEAD
+  def new
+
+  end
+
+  def create
+  	@genre = Genre.new(genre_params)
+  end
+=======
+>>>>>>> develop
 
   def update
   	@genre = Genre.find(params[:id])
