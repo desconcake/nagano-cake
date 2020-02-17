@@ -21,16 +21,12 @@ class OrdersController < ApplicationController
     @sub_address = SubAddress.new
 
     # if @sub_address.save
-
-
-
   end
 
   def check
     if params[:method_of_payment] == "true"
     else
     "false"
-
     end
     # binding.pry
     # if radio_num == "1"
@@ -42,7 +38,6 @@ class OrdersController < ApplicationController
     # end
     #binding.pry
     #@order.shipping_address = params[:address]
-
   end
 
   def create
@@ -80,9 +75,5 @@ class OrdersController < ApplicationController
   def customer_params
      params.require(:customer).permit(:delivery_name, :postal_code, :shipping_address)
   end
-
-
-
-
 
 end

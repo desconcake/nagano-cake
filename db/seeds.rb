@@ -18,7 +18,7 @@ Order.create(id:1, :customer_id => 1, :billing_amount => 10000, :postage => 800,
 # Order.create!(id:2, :customer_id => 2, :billing_amount => 10000, :postage => 800, :method_of_payment => false, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 'waiting')
 # Order.create!(id:3, :customer_id => 3, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 'waiting')
 
-Admin.create(email: 'admin@admin', password: 111111)
+# Admin.create(email: 'admin@admin', password: 111111)
 
 Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
@@ -40,5 +40,3 @@ Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, 
 OrderItem.create!(id:1, order_id: 1, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
 OrderItem.create!(id:2, order_id: 1, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
 OrderItem.create!(id:3, order_id: 1, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
-
-

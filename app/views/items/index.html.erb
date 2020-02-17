@@ -35,7 +35,7 @@
                 <%= link_to item.name, item_path(item.id), class: "item_link" %>
                 </div>
                 <div class="price_text">
-                  <% @item_price = item.non_taxed_price.to_i * 1.1  %>
+                  <% (@item_price = item.non_taxed_price.to_i * 1.1).to_s(:delimited)  %>
                 ¥<%= @item_price.floor.to_s(:delimited) %>
                 </div>
             </div>

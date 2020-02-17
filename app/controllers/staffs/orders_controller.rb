@@ -1,6 +1,12 @@
 class Staffs::OrdersController < ApplicationController
 	def index
-		@orders = Order.all
+	    if params[:place] && params[:place] == 'top'
+         	@orders = Order.where(created_at: Date.current.all_day)
+            .order("created_at")
+        	@orders_count = @orders.count
+        elsif
+		else	@orders = Order.all
+		end
 		# @total = 0
 		# @orders.order_items.each do |order|
 		# 	@total += order.order_quantity

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
      root to: 'home#top'
      #put 'orders/item/:id', to:'orders#item_update', as:'order_item'
      patch 'orders/item/:id', to:'orders#item_update', as:'order_item'
+     get 'orders/customers/:id', to:'orders#index', as: 'orders_search'
      resources :orders, only:[ :index, :show, :edit, :update ]
      resources :customers, only:[ :index, :show, :edit, :update ]
      resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
@@ -23,11 +24,10 @@ Rails.application.routes.draw do
         registrations: 'customers/registrations'
       }
 
-  get 'home/about', to: 'home#about'
-  devise_for :admins, controllers: {
-        sessions: 'admins/sessions',
-        registrations: 'admins/registrations'
-      }
+  # devise_for :admins, controllers: {
+  #       sessions: 'admins/sessions',
+  #       registrations: 'admins/registrations'
+  #     }
 
   root to: 'home#top'
   get '/home/about', to: 'home#about'
