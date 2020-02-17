@@ -13,3 +13,4 @@ class Order < ApplicationRecord
 		postale_code+shipping_address+delivery_name
   	end
 end
+

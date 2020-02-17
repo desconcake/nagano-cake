@@ -1,1 +1,13 @@
-<h1>SHOW</h1>
+<h1>配送先編集</h1>
+<%= form_for(@sub_address) do |sub_address| %>
+<p>郵便番号</p>
+<%= sub_address.text_field :postal_code %>
+<p>住所</p>
+<%= sub_address.text_area :shipping_address %>
+<p>宛名</p>
+<%= sub_address.text_field :delivery_name %>
+
+<br><%= sub_address.submit "編集する", class: "pull-right", class: "btn btn-warning" %>
+
+
+<% end %>

@@ -1,2 +1,18 @@
-<h1>Orders#check</h1>
-<p>Find me in app/views/orders/check.html.erb</p>
+<h1>注文情報確認</h1>
+<%= form_with url: orders_thanks_path,method: :get ,local: true do |f| %>
+<p>支払方法</p>
+<%= f.hidden_field :method_of_payment %>
+<% method_of_payment == "true" %>
+クレジットカード
+<% else %>
+銀行振込
+<% end %>
+
+<% end %>
+
+
+
+
+
+
+
