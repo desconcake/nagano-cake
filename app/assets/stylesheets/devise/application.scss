@@ -1,0 +1,23 @@
+// Place all the styles related to the devise/application controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix::after{
+	content: "";
+	display: block;
+}
+
+.coutomer-line1 {
+
+}
+
+.coutomer-mail-name {
+	float: left;
+	font-size: 18px;
+	margin-left: 200px;
+	width: 200px;
+}
+
+.coutomer-mail-field {
+	float: right;
+}

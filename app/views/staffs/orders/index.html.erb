@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-
-<body>
-  <div class="container">
-    <h2>注文一覧画面</h2>
-  </div>
-	<div class='row'>
+<div class="container">
+  <h2>注文一覧画面</h2>
+  <div class='row'>
     <table class='table table-hover table-inverse'>
       <thead>
         <tr>
@@ -19,6 +12,7 @@
       </thead>
 
       <tbody>
+
         <tr>
             <% @orders.each do |order| %>
                <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), staffs_order_path(order.id) %></td>
@@ -34,11 +28,7 @@
             <% end %>
         </tr>
         </tbody>
+
     </table>
   </div>
-
-<footer>
-</footer>
-
-</body>
-</html> 
+</div>

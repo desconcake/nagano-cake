@@ -12,5 +12,7 @@ class Customer < ApplicationRecord
   has_many :orders
 
   acts_as_paranoid
-
+  def fullName
+    surname+name
+  end
 end
