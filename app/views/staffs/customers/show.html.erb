@@ -4,7 +4,13 @@
   <table class="customer_table">
     <tr>
       <th>顧客ID</th>
-      <td><%= @customer.id %></td>
+      <td><%= @customer.id %>
+        <% if @customer.deleted_at == nil %>
+        <span>　　有効会員</span>
+        <% else %>
+          <span>　　退会済会員</span>
+      </td>
+        <% end %>
     </tr>
     <tr>
       <th>氏名</th>
@@ -29,6 +35,10 @@
       <td><%= @customer.email %></td>
     </tr>
   </table>
-    <%= link_to "編集する", edit_staffs_customer_path(@customer), class: "btn btn-success"%>
-    <%= link_to "注文履歴一覧を見る", staffs_orders_path, class: "btn btn-primary"%>
+
+    <%= link_to "編集する", edit_staffs_customer_path(@customer), class: "btn btn-success", data: {"turbolinks" => false} %>
+    <%  %>
+    <%= link_to "注文履歴一覧を見る", staffs_orders_path(customer_id: @customer.id), class: "btn btn-primary"%>
+
 </div>
+

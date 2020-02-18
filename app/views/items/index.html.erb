@@ -2,9 +2,15 @@
 
   <%= render 'items/genre_list', genres: @genres %>
 
+
   <div class="col-xs-9">
-    <div class="title">商品一覧
+    <% if params[:genre_id] != nil %>
+    <div class="title"><!--商品一覧--><%= @genre.name %>
+      <% else %>
+      <div class="title">商品一覧
+      <% end %>
       <span class="item_count">全 <%= @items_count %> 件</span>
+
     </div>
 
       <div class="item_list_box">
@@ -21,7 +27,7 @@
           </div>
           <% end %>
       </div>
-      <%= paginate @items, class: "paginate" %>
+      <%= paginate @items, class: "pagination" %>
   </div>
 
 </div>

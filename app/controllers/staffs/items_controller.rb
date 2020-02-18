@@ -16,7 +16,7 @@ class Staffs::ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		@item.save
-		redirect_to admins_item_path(@item)
+		redirect_to staffs_items_path
 	end
 
 	def edit
@@ -28,7 +28,7 @@ class Staffs::ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		if   @item.update(item_params)
      	     flash[:notice] = "You have updated user successfully"
-    	     redirect_to admins_item_path(@item.id)
+    	     redirect_to staffs_item_path(@item.id)
     	else render 'edit'
     	end
 	end
