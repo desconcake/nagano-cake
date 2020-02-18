@@ -27,19 +27,34 @@ class Staffs::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		@order_items = @order.items
-		if @order_items.
+		@order_items = @order.order_items
 		@order.update(order_params)
-		redirect_to staffs_order_path(@order)
+
+		if @order.order_status == 'varification'
+		   	@order.order_items.update(create_status: 'waiting')
+		   	 redirect_to staffs_order_path(@order)
+		else
+			redirect_to staffs_order_path(@order)
+		end
 	end
 	def item_update
 		order_item = OrderItem.find(params[:id])
 		@order = order_item.order
+		@order_items=@order.order_items
 		order_item.update(order_item_params)
-		# if order_item.order_items == 1
-		#    @order.order_status == 1
-		#    @order.update
-		# elsif order_item.order_items == 1
+		if order_item.create_status=='making' && @order.order_status!='production'
+		   @order.update(order_status: 'production')
+		elsif order_item.create_status == 'completed'
+			answer = true
+			@order_items.each do |ord_items|
+				if ord_items.create_status!='completed'
+					answer=false
+				end
+			end
+			if answer
+			  	@order.update(order_status: 'preparing')
+		  	end
+		end
 		redirect_to staffs_order_path(order_item.order.id)
 	end
 	private

@@ -21,7 +21,7 @@
           <th>注文ステータス</th>
           <th>
             <div class="field">
-              <%= form_for(@order,url:staffs_order_path(@order.order_id)) do |f| %>
+              <%= form_for(@order, url:staffs_order_path(@order)) do |f| %>
                 <%= f.select :order_status, Order.order_statuses.map {|k, v| [t("enums.order.order_status.#{k}"), k]} %>
                 <%= f.submit "更新" %>
               <% end %>

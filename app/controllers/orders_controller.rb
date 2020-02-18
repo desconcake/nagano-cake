@@ -68,6 +68,7 @@ class OrdersController < ApplicationController
       @order_item.tax_included_price = cart_item.item.non_taxed_price * 1.1
       @order_item.save
     end
+      cart_items.destroy_all
       redirect_to orders_thanks_path
 
   end
