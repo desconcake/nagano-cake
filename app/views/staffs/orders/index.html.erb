@@ -13,9 +13,9 @@
 
       <tbody>
 
-        <tr>
           <% @orders.each do |order| %>
-             <td><%= link_to order.created_at.strftime("%Y/%m/%d %H:%M:%S"), staffs_order_path(order.id) %></td>
+          <tr>
+             <td><%= link_to order.created_at.strftime("%Y/%m/%d"), staffs_order_path(order.id) %></td>
              <td><%= order.customer.surname + order.customer.name  %></td>
              <td>
               <% total = 0 %>
@@ -25,8 +25,8 @@
               <%= total %>
               </td>
              <td><%= order.order_status_i18n %></td>
+             </tr>
           <% end %>
-       </tr>
       </tbody>
     </table>
   </div>

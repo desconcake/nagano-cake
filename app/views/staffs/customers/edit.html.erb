@@ -1,2 +1,100 @@
-<h1>Staffs::Customers#edit</h1>
-<p>Find me in app/views/staffs/customers/edit.html.erb</p>
+
+<div class="col-xs-9">
+  <h2 class="list-title">会員編集画面</h2>
+  <table class="customer_table">
+    <tr>
+      <th>会員ID</th>
+      <td><%= @customer.id %></td>
+    </tr>
+    <%= form_for @customer, url: staffs_customer_path(@customer) do |f| %>
+    <tr>
+      <th>氏名</th>
+      <td>
+        <div class="form-group row">
+          <div class="col-xs-5">
+          <%= f.text_area :surname, class:"form-control", id:"InputTextarea", rows:"1" %>
+          </div>
+          <div class="col-xs-5">
+          <%= f.text_area :name, class:"form-control", id:"InputTextarea", rows:"1" %>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th>フリガナ</th>
+      <td>
+          <div class="form-group row">
+            <div class="col-xs-5">
+            <%= f.text_area :surname_kana, class:"form-control", id:"InputTextarea", rows:"1" %>
+            </div>
+            <div class="col-xs-5">
+            <%= f.text_area :name_kana, class:"form-control", id:"InputTextarea", rows:"1" %>
+            </div>
+          </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th>郵便番号</th>
+      <td>
+        <div class="form-group row">
+          <div class="col-xs-5">
+          <%= f.text_area :postal_code, class:"form-control", id:"InputTextarea", rows:"1" %>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th>住所</th>
+      <td>
+        <div class="form-group row">
+          <div class="col-xs-10">
+          <%= f.text_area :address, class:"form-control", id:"InputTextarea", rows:"1" %>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th>電話番号</th>
+      <td>
+        <div class="form-group row">
+          <div class="col-xs-6">
+          <%= f.text_area :phone_number, class:"form-control", id:"InputTextarea", rows:"1" %>
+          </div>
+        </div>
+      </td>
+    <tr>
+
+    <tr>
+      <th><label for="InputEmail">メールアドレス</label></th>
+      <td>
+        <div class="form-group row">
+          <div class="col-xs-6">
+          <%= f.text_area :email, class:"form-control", id:"InputEmail", rows:"1" %>
+          </div>
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <th>会員ステータス</th>
+      <td>
+      <form>
+        <label class="radio-inline">
+          <input type="radio" name="radioName" value="有効">有効
+          <%=  %>
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="radioName" value="無効">無効
+          <%=  %>
+        </label>
+      </form>
+      </td>
+    </tr>
+  </table>
+    <%= f.submit("変更を保存する", class: "btn btn-primary") %>
+    <% end  %>
+</div>
