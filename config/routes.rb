@@ -8,6 +8,8 @@ Rails.application.routes.draw do
      patch 'orders/item/:id', to:'orders#item_update', as:'order_item'
      get 'orders/customers/:id', to:'orders#index', as: 'orders_search'
      resources :orders, only:[ :index, :show, :edit, :update ]
+
+
      resources :customers, only:[ :index, :show, :edit, :update, :destroy ]
      resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
      resources :genres, only:[ :index, :new, :create, :edit, :update ]
