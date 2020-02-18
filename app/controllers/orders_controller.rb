@@ -1,9 +1,6 @@
 class OrdersController < ApplicationController
   def index
     @orders = current_customer.orders
-    # @order_items = @orders.order_items
-    # @items = Item.all(params[:id])
-
   end
 
   def show
@@ -15,52 +12,65 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    # @sub_addresses = current_customer.sub_addresses
-    # @sub_addresses = @order.sub_addresses
-    # @sub_addresses = SubAddress.find(params[:id])
+    @sub_addresses = SubAddress.where(customer_id: current_customer.id)
     @sub_address = SubAddress.new
-
-    # if @sub_address.save
-
-
 
   end
 
   def check
-    if params[:method_of_payment] == "true"
-    else
-    "false"
+    @order = Order.new
+    @method_of_payment = params[:method_of_payment]
 
+    if params[:radio_num] == "1"
+      @postal_code = current_customer.postal_code
+      @shipping_address = current_customer.address
+      @delivery_name = current_customer.full_name
+
+    elsif params[:radio_num] == "2"
+      #binding.pry
+      @address = SubAddress.find(params[:sub_address])
+      @postal_code = address.postal_code
+      @shipping_address = address.shipping_address
+      @delivery_name = address.delivery_name
+
+    elsif params[:radio_num] == "3"
+      @postal_code = params[:postal_code]
+      @shipping_address = params[:shipping_address]
+      @delivery_name = params[:delivery_name]
+
+      # @sub_address = SubAddress.new(sub_address_params)
+      # @sub_address = [@postal_code, @shipping_address, @delivery_name]
+
+      @sub_address = SubAddress.new
+      @sub_address.postal_code = @postal_code
+      @sub_address.shipping_address = @shipping_address
+      @sub_address.delivery_name = @delivery_name
+      @sub_address.customer_id = current_customer.id
+
+      @sub_address.save
     end
-    # binding.pry
-    # if radio_num == "1"
-      # @address = params[:address]
-    # elsif radio_num == "2"
-      # @address = params[:sub_address]
-    # elsif radio_num == "3"
-      # @address = params[:new_sub_address]
-    # end
-    #binding.pry
-    #@order.shipping_address = params[:address]
 
+    @cart_items = current_customer.cart_items
+    #binding.pry
   end
 
   def create
-
     @order = Order.new(order_params)
+    @order.postage = 800
     @order.customer_id = current_customer.id
     @order.save
-    a = params[:order][:address]
-    #binding.pry
-    b = a.split
-    @order = Order.new(order_params)
-    @order.postale_code = b[0]
-    @order.shipping_address = b[1]
-    @order.delivery_name = b[2]
-    @order.postage = 800
-    #binding.pry
-    @order.customer_id = current_customer.id
-    @order_items = OrderItem.where(order_id: @order.id)
+
+    cart_items = current_customer.cart_items
+    cart_items.each do |cart_item|
+      @order_item = OrderItem.new
+      @order_item.order_id = @order.id
+      @order_item.order_quantity = cart_item.quantity
+      @order_item.item_id = cart_item.item_id
+      @order_item.tax_included_price = cart_item.item.non_taxed_price * 1.1
+      @order_item.save
+    end
+      redirect_to orders_thanks_path
+
   end
 
   def thanks
@@ -68,8 +78,12 @@ class OrdersController < ApplicationController
 
   private
 
-   def order_params
-    params.require(:order).permit(:customer_id, :delivery_name, :postale_code, :shipping_address, :method_of_payment, :postage, :billing_amount)
+  def order_params
+    params.require(:order).permit(:customer_id, :delivery_name, :postal_code, :shipping_address, :method_of_payment, :postage, :billing_amount)
+  end
+
+  def sub_address_params
+    params.require(:sub_address).permit(:customer_id, :delivery_name, :postal_code, :shipping_address)
   end
 
   def item_params
@@ -79,9 +93,5 @@ class OrdersController < ApplicationController
   def customer_params
      params.require(:customer).permit(:delivery_name, :postal_code, :shipping_address)
   end
-
-
-
-
 
 end

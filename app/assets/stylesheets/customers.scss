@@ -2,3 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.customer_table {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.customer_table th {
+  width: 160px;
+  height: 40px;
+}
+
+.customer_table td {
+  color: #444;
+}
+
+.btn {
+  margin: 20px 10px 0 0 ;
+}

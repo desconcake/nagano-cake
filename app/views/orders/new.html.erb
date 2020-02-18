@@ -1,17 +1,12 @@
-<h1>購入情報入力</h1>
-<p>支払い方法</p>
+<h3>購入情報入力</h3>
+  <h4>支払い方法</h4>
 
-<%= form_with url: orders_check_path,method: :post ,local: true do |f| %>
+  <%= form_with url: orders_check_path, method: :get ,local: true do |f| %>
 
-
-  <%= f.radio_button :method_of_payment, :true %>
-  <%= f.label :method_of_payment, "クレジットカード" %><br>
-  <%= f.radio_button :method_of_payment, :false %>
-  <%= f.label :method_of_payment, "銀行振込" %>
-
-
-
-
+    <%= f.radio_button :method_of_payment, :true %>
+    <%= f.label :method_of_payment, "クレジットカード" %>
+    <%= f.radio_button :method_of_payment, :false %>
+    <%= f.label :method_of_payment, "銀行振込" %>
 
 
 
@@ -31,7 +26,7 @@
 			<tbody>
 				<tr>
 					<td><label><%= f.radio_button("radio_num", "2") %>登録先住所から選択</label><br>
-		  <%= f.select :sub_address, current_customer.sub_addresses.map { |subaddress| [subaddress.postal_code + "  " + subaddress.shipping_address + "  " + subaddress.delivery_name]} %><br></td>
+		  <%= f.select :sub_address, current_customer.sub_addresses.map { |subaddress| [subaddress.postal_code + "  " + subaddress.shipping_address + "  " + subaddress.delivery_name, subaddress.id ]} %><br></td>
 				</tr>
 			</tbody>
 
@@ -61,8 +56,5 @@
 
 
 		<% end %>
-
-
-
 
 
