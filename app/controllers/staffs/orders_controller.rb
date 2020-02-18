@@ -1,6 +1,10 @@
 class Staffs::OrdersController < ApplicationController
 	def index
-		@orders = Order.all
+		if params[:customer_id] != nil
+			@orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).reverse_order
+    else
+    	@orders = Order.all
+    end
 		# @total = 0
 		# @orders.order_items.each do |order|
 		# 	@total += order.order_quantity
@@ -12,7 +16,7 @@ class Staffs::OrdersController < ApplicationController
 	end
 
 	def show
-		@order = Order.find(params[:id])
+    	@order = Order.find(params[:id])
 		# @orders = @order.order_items
 		# @items = @orders.items
 		# @subtotal = @items.subtotal #小計

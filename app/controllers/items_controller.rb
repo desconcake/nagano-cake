@@ -1,16 +1,19 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.page(params[:page]).reverse_order
-    @items_count = Item.count
+    if params[:genre_id] != nil
+    @items = Item.where(genre_id: params[:genre_id]).page(params[:page]).reverse_order
+    @items_count = @items.count
     @genres = Genre.where(genre_status: true)
-  end
+    @genre = Genre.find(params[:genre_id])
+    else
+    @items = Item.all.page(params[:page]).reverse_order
+    @items_all = Item.all
+    @items_count = @items_all.count
+    @genres = Genre.where(genre_status: true)
+    @genre = Genre.all
+    end
 
-  def devide
-    @devide_items = Item.where(genre_id: params[:id])
-    @items_count = @devide_items.count
-    @genres = Genre.where(genre_status: true)
-    @genre = Genre.find(params[:id])
   end
 
   def show

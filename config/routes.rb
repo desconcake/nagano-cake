@@ -7,7 +7,7 @@ Rails.application.routes.draw do
      #put 'orders/item/:id', to:'orders#item_update', as:'order_item'
      patch 'orders/item/:id', to:'orders#item_update', as:'order_item'
      resources :orders, only:[ :index, :show, :edit, :update ]
-     resources :customers, only:[ :index, :show, :edit, :update ]
+     resources :customers, only:[ :index, :show, :edit, :update, :destroy ]
      resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
      resources :genres, only:[ :index, :new, :create, :edit, :update ]
    end
@@ -34,9 +34,6 @@ Rails.application.routes.draw do
   resources :customers, only:[ :edit, :show, :update, :destroy ]
   resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ] do
-    member do
-      get :devide
-    end
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   end
 

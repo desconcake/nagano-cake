@@ -1,29 +1,8 @@
 <div class="row">
-    <div class="col-xs-3">
-      <article id="genre_list_area">
-        <table class="table">
-          <thead>
-            <tr>
-              <th class="table_genre">ジャンル検索</th>
-            </tr> 
-          </thead>
-          <tbody>
-            <% @genres.each do |genre| %>
-              <tr>
-                <td style="border-style: none;">
-                    <%= link_to items_path do %>
-                      <span class="genre_text" ><%= genre.name %></span> 
-                    <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </article>
-    </div>
+  <%= render 'items/genre_list', genres: @genres %>
 
     <div class="col-xs-9">
-      <div class="title">ケーキ
+      <div class="title">商品一覧
         <span class="item_count">全 <%= @items_count %> 件</span>
       </div>
 
