@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Customer.find_or_create_by(id:1, surname: "空条", name: "承太郎", surname_kana: "くうじょう", name_kana: "じょうたろう", email: "aaa@test.jp", encrypted_password:"111111", phone_number:"010-xxx-xxx", postal_code:0000000, address:"東京都渋谷区神南 パークウェースクエア2 1階", customer_status: 0)
 Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
 Customer.create(id:2, surname: "ぺん", name: "太郎", surname_kana: "ペン", name_kana: "タロウ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "12@12", password: "2222222")
 Customer.create(id:3, surname: "こうぺん", name: "ちゃん", surname_kana: "コウペン", name_kana: "チャン", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "13@13", password: "3333333")
@@ -34,6 +33,7 @@ Item.find_or_create_by(id:7, name: "大きな桃のゼリー", non_taxed_price: 
 Item.find_or_create_by(id:8, name: "マカロンセット（8個）", non_taxed_price: 1200, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:9, name: "マカロンセット（16個）", non_taxed_price: 2000, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, genre_id: 1, description: "aaa")
-# OrderItem.create!(id:1, order_id: 1, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
-# OrderItem.create!(id:2, order_id: 1, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
-# OrderItem.create!(id:3, order_id: 1, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
+
+# OrderItem.find_or_create_by!(id:1, order_id:2, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
+# OrderItem.find_or_create_by!(id:2, order_id:2, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
+# OrderItem.find_or_create_by!(id:3, order_id:2, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
