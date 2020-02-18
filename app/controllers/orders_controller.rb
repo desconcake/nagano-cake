@@ -50,6 +50,7 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
+    @order.cart_items.destroy_all
     a = params[:order][:address]
     #binding.pry
     b = a.split
