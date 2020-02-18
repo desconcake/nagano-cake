@@ -4,11 +4,11 @@ class Staffs::OrdersController < ApplicationController
          	@orders = Order.where(created_at: Date.current.all_day)
             .order("created_at")
         	@orders_count = @orders.count
-        elsif
-		 	params[:id] == params[:customer_id]
+        elsif params[:id]
 		 	@customer = Customer.find(params[:id])
-		   	@orders = @customer.order
-		else   @orders = Order.all
+		   	@orders = @customer.orders
+		else
+			@orders = Order.all
 		end
 	end
 
