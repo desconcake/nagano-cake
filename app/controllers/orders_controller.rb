@@ -26,7 +26,6 @@ class OrdersController < ApplicationController
       @delivery_name = current_customer.full_name
 
     elsif params[:radio_num] == "2"
-      #binding.pry
       address = SubAddress.find(params[:sub_address])
       @postal_code = address.postal_code
       @shipping_address = address.shipping_address
@@ -51,12 +50,22 @@ class OrdersController < ApplicationController
 
     @cart_items = current_customer.cart_items
     #binding.pry
+      @sub_address = SubAddress.new
+      @sub_address.postal_code = @postal_code
+      @sub_address.shipping_address = @shipping_address
+      @sub_address.delivery_name = @delivery_name
+      @sub_address.customer_id = current_customer.id
+      @sub_address.save
+
   end
 
   def create
     @order = Order.new(order_params)
     @order.postage = 800
     @order.customer_id = current_customer.id
+
+    @order_items = OrderItem.where(order_id: @order.id)
+
     @order.save
 
     cart_items = current_customer.cart_items
@@ -70,6 +79,7 @@ class OrdersController < ApplicationController
     end
       cart_items.destroy_all
       redirect_to orders_thanks_path
+
 
   end
   def thanks

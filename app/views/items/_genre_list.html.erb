@@ -15,7 +15,7 @@
           <tr>
             <% genres.each do |genre| %>
               <td style="border-style: none;">
-                <%= link_to devide_item_path(genre.id) do %>
+                <%= link_to items_path(genre_id: genre.id) do %>
                   <span class="genre_text" ><%= genre.name %></span>
                 <% end %>
             </td>

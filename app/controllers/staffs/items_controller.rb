@@ -16,7 +16,7 @@ class Staffs::ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		@item.save
-		redirect_to staffs_item_path(@item)
+		redirect_to staffs_items_path
 	end
 
 	def edit

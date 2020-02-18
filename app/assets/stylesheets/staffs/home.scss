@@ -1,3 +1,20 @@
 // Place all the styles related to the staffs/home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.staff-top {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.order_count {
+	margin-left: 100px;
+}
+
+
+	/*params[:place] == "top"
+		@orders_count = Order.where(created_at: Date.current.beginning_of_day)
+  		.order("DAY(created_at)")
+  		.count
+  		elsif params[:id] == customer_params[:id]
+  		else @order = Order.all*/

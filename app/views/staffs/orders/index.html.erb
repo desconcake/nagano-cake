@@ -13,6 +13,7 @@
 
       <tbody>
 
+
           <% @orders.each do |order| %>
           <tr>
              <td><%= link_to order.created_at.strftime("%Y/%m/%d"), staffs_order_path(order.id) %></td>
@@ -28,6 +29,7 @@
              </tr>
           <% end %>
       </tbody>
+
     </table>
   </div>
 </div>
