@@ -15,7 +15,7 @@ class Customer < ApplicationRecord
   def full_name
     surname + name
   end
-  
+
   def full_name_kana
     surname_kana + name_kana
   end

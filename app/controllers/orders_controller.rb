@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
     @order = Order.new
     @sub_addresses = SubAddress.where(customer_id: current_customer.id)
     @sub_address = SubAddress.new
-
   end
 
   def check
@@ -95,3 +94,4 @@ class OrdersController < ApplicationController
   end
 
 end
+

@@ -1,14 +1,15 @@
 class Staffs::OrdersController < ApplicationController
 	def index
-		@orders = Order.all
-		# @total = 0
-		# @orders.order_items.each do |order|
-		# 	@total += order.order_quantity
-		# end
-		# if params[:place] == "top"
-		# elsif params[:id] == customer_params[:id]
-		# else @order = Order.all
-		# end
+	    if params[:place] && params[:place] == 'top'
+         	@orders = Order.where(created_at: Date.current.all_day)
+            .order("created_at")
+        	@orders_count = @orders.count
+        elsif params[:id]
+		 	@customer = Customer.find(params[:id])
+		   	@orders = @customer.orders
+		else
+			@orders = Order.all
+		end
 	end
 
 	def show
