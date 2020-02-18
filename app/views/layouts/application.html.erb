@@ -16,33 +16,37 @@
   <div class="header">
     <div class="container">
       <div class="row">
-        <div class="col-xs-7">
+        <div class="col-xs-6">
           <h2>
+            <% if customer_signed_in? && !request.fullpath.include?("staffs") %>
             <%= link_to "ながのCAKE", items_path, class: "header_logo" %>
+            <% else %>
+            <%= link_to "ながのCAKE", staffs_root_path, class: "header_logo" %>
+            <% end %>
           </h2>
         </div>
 
-
-        <div class="col-xs-5 headerNavBox">
+        <div class="col-xs-6 headerNavBox">
           <div class="row">
-            <% if customer_signed_in? %>
+            <% if customer_signed_in? && !request.fullpath.include?("staffs") %>
               <%= link_to "MyPage", customer_path(current_customer.id), class: "col-xs-2 headerNavBtn" %>
               <%= link_to "Cart", item_cart_items_path(current_customer.id), class: "col-xs-2 headerNavBtn" %>
               <%= link_to "About", home_about_path, class: "col-xs-2 headerNavBtn" %>
               <%= link_to "Logout", destroy_customer_session_path, method: :delete, class: "col-xs-3 headerNavBtn" %>
               <span class="col-xs-3 login_name glyphicon glyphicon-user"><%= current_customer.full_name %></span>
-            <% elsif staff_signed_in? %>
-              <%= link_to "商品一覧", staffs_items_path, class: "col-xs-3 headerNavBtn staff_header" %>
+            <% elsif staff_signed_in? && request.fullpath.include?("staffs") %>
+              <%= link_to "商品一覧", staffs_items_path, class: "col-xs-2 headerNavBtn staff_header" %>
               <%= link_to "会員一覧", staffs_customers_path, class: "col-xs-3 headerNavBtn staff_header" %>
               <%= link_to "注文履歴一覧", staffs_orders_path, class: "col-xs-3 headerNavBtn staff_header" %>
               <%= link_to "ジャンル管理", staffs_genres_path, class: "col-xs-3 headerNavBtn staff_header" %>
+              <%= link_to "", destroy_staff_session_path, method: :delete, class: "col-xs-1 headerNavBtn staff_header glyphicon glyphicon-log-out" %>
             <% else %>
-              <%= link_to "About", home_about_path, class: "col-xs-4 headerNavBtn" %>
-              <%= link_to "Sign up", new_customer_registration_path, class: "col-xs-4 headerNavBtn" %>
-              <%= link_to "Login", new_customer_session_path, class: "col-xs-4 headerNavBtn" %>
+              <%= link_to "ながのCAKEのこと", home_about_path, class: "col-xs-4 headerNavBtn" %>
+              <%= link_to "新規会員登録", new_customer_registration_path, class: "col-xs-4 headerNavBtn" %>
+              <%= link_to "ログイン", new_customer_session_path, class: "col-xs-4 headerNavBtn" %>
             <% end %>
           </div>
-      </div>
+        </div>
 
       </div>
     </div>
@@ -60,7 +64,7 @@
       <%= yield %>
     </div>
 </section>
-<% if customer_signed_in? %>
+<% if customer_signed_in? && request.fullpath.index("/staffs/") == nil %>
 <footer>
   <div id="footer">
     <div class="copyright">© 2020 NaganoCake</div>
