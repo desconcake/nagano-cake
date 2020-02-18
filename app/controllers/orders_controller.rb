@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
 
     elsif params[:radio_num] == "2"
       #binding.pry
-      @address = SubAddress.find(params[:sub_address])
+      address = SubAddress.find(params[:sub_address])
       @postal_code = address.postal_code
       @shipping_address = address.shipping_address
       @delivery_name = address.delivery_name
