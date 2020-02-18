@@ -9,7 +9,7 @@ Rails.application.routes.draw do
      get 'orders/customers/:id', to:'orders#index', as: 'orders_search'
      resources :orders, only:[ :index, :show, :edit, :update ]
      resources :customers, only:[ :index, :show, :edit, :update ]
-     resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
+     resources :items, only:[ :index, :new, :create, :edit, :update, :show ]
      resources :genres, only:[ :index, :new, :create, :edit, :update ]
    end
 
