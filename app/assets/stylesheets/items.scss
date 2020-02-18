@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 .table {
   /*border: 1px solid #6f5436;*/
   background-color: #ede4e1;
@@ -10,8 +11,9 @@
   filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
 }
 
-#genre_list_area table tr th {
+#genre_list_area table tr th{
   font-weight: bold;
+  color: #6f5436;
   /*てすとだよ〜*/
 }
 

@@ -34,6 +34,7 @@ Customer.create(id:3, surname: "こうぺん", name: "ちゃん", surname_kana: 
 Order.create(id:1, :customer_id => 1, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん太郎', :shipping_address => "配送先住所", :postale_code => 1600000, :order_status => 'waiting')
 
 
+
 Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
 Genre.find_or_create_by(id:3, name: "チョコレート", genre_status: 1)

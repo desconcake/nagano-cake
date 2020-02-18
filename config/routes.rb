@@ -24,28 +24,32 @@ Rails.application.routes.draw do
       }
 
   get 'home/about', to: 'home#about'
-  devise_for :admins, controllers: {
-        sessions: 'admins/sessions',
-        registrations: 'admins/registrations'
-      }
+  #devise_for :admins, controllers: {
+        #sessions: 'admins/sessions',
+        #registrations: 'admins/registrations'
+      #}
 
   root to: 'home#top'
   get '/home/about', to: 'home#about'
   resources :customers, only:[ :edit, :show, :update, :destroy ]
   resources :customers, only:[ :edit, :show, :update,:destroy ]
   resources :items, only:[ :index, :show ] do
+    member do
+      get :devide
+    end
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   end
 
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
 
-  resources :orders, only:[ :index, :show, :new, :create ]
-  post 'orders/check', to: 'orders#check'
+  get 'orders/check', to: 'orders#check'
   get 'orders/thanks', to: 'orders#thanks'
 
+  resources :orders, only:[ :index, :show, :new, :create ]
+  resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
 
-
-  resources :sub_addresses
 
 
  #  namespace :admins do
@@ -61,6 +65,4 @@ Rails.application.routes.draw do
 
 
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-end
 
