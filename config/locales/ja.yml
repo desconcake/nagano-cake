@@ -14,6 +14,16 @@ ja:
         preparing: 発送準備中
         sent: 発送済
 
+ja:
+  views:
+    pagination:
+      first: '最初'
+      last: '最後'
+      previous: '前'
+      next: '次'
+      truncate: '...'
+
+
 # ja:
 #   boolean:
 #     genre_status:

@@ -5,19 +5,35 @@ class Staffs::CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
+  @customer = Customer.with_deleted.find(params[:id])
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = Customer.with_deleted.find(params[:id])
   end
 
   def update
-    @customer = Customer.find(params[:id])
-    @customer.update(customer_params)
-    redirect_to staffs_customer_path(@customer.id)
+    @customer = Customer.with_deleted.find(params[:id])
+    if params[:deleted_at] == "無効"
+    @customer.delete
+    else
+    @customer.restore
+    end
+
+    if @customer.update(customer_params)
+      flash[:notice] = "You have updated customer successfully"
+      redirect_to staffs_customer_path(@customer.id)
+    else
+      render 'edit'
+    end
+    #binding.pry
   end
 
+  #def destroy
+    #@customer = Customer.find(params[:id])
+    #if @customer.destroy
+      #redirect_to staffs_customer_path(@customer.id)
+    #end
 
    private
   def customer_params

@@ -1,7 +1,39 @@
-<div class="customer-sign-in container">
-  <div class="row">
-    <div class="col-xs-6">
-      <div class="">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>nagano_cake</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <script src="https://kit.fontawesome.com/b3982dc813.js" crossorigin="anonymous"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+  <div class="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-7">
+          <h2>
+            <%= link_to "ながのCAKE", items_path, class: "header_logo" %>
+          </h2>
+        </div>
+       </div>
+    </div>
+  </div>
+</header>
+
+<section>
+    <div class="container">
+
+      <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
 
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -22,7 +54,5 @@
         <% end %>
 
         <%#<%= render "staffs/shared/links" %>
-      </div>
     </div>
-  </div>
-</div>
+</section>
