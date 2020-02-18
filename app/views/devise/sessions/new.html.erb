@@ -1,23 +1,31 @@
 <div class="customer-sign-in container">
   <div class="row">
-    <div class="col-xs-6">
-      <div class="">
+    <div class="col-xs-8  col-md-offset-2">
+      <div class="coutomer-sign-in clearfix">
 
         <h3>会員の方はこちらからログイン</h3>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :メールアドレス %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="coutomer-line1 clearfix">
+            <div class="coutomer-mail-name">
+              <%= f.label :メールアドレス %>
+            </div>
+            <div class="coutomer-mail-field">
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"35" %>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :パスワード %>
-            <%= f.password_field :password, autocomplete: "current-password" %>
+          <div class="coutomer-line2 clearfix">
+            <div class="coutomer-pass-name">
+              <%= f.label :パスワード %>
+            </div>
+            <div class="coutomer-pass-field">
+              <%= f.password_field :password, autocomplete: "current-password",:size=>"35" %>
+            </div>
           </div>
 
 
-          <div class="actions">
+          <div class="coutomer-actions">
             <span class="log-in-btn"><%= f.submit "ログイン", class: "btn btn-primary" %></span><span class=passwaord-forget><%= link_to "=> パスワードを忘れた方はこちら", new_password_path(resource_name) %></span>
           </div>
 
@@ -28,7 +36,6 @@
           </div>
         <% end %>
 
-      
       </div>
     </div>
   </div>

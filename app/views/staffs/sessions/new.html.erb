@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>nagano_cake</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
 
-  <script src="https://kit.fontawesome.com/b3982dc813.js" crossorigin="anonymous"></script>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
+
+
 <header>
   <div class="header">
     <div class="container">
@@ -36,23 +26,38 @@
 
 
 
+
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
 
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "current-password" %>
+        <div class="line1 clearfix">
+          <div class="mail-name">
+            <%= f.label :メールアドレス %>
           </div>
+          <div class="mail-field">
+            <%= f.email_field :email, autofocus: true, autocomplete: "email",:size=>"35" %>
+          </div>
+        </div>
 
+        <div class="line2 clearfix">
+          <div class="pass-name">
+            <%= f.label :パスワード %>
+          </div>
+          <div class="pass-field">
+            <%= f.password_field :password, autocomplete: "current-password",:size=>"35" %>
+          </div>
+          </div>
+        </div>
+
+         </div>
+
+      </div>
 
           <div class="actions">
-            <%= f.submit "ログイン", class: "btn btn-primary" %>
+            <%= f.submit "ログイン", class: "btn btn-primary",style:"WIDTH: 150px; HEIGHT: 40px"%>
           </div>
         <% end %>
 
         <%#<%= render "staffs/shared/links" %>
-    </div>
+
 </section>
+

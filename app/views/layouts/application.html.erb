@@ -15,7 +15,9 @@
 <header>
   <div class="header">
     <div class="container">
+
       <div class="row">
+
         <div class="col-xs-6">
           <h2>
             <% if customer_signed_in? && !request.fullpath.include?("staffs") %>
@@ -27,6 +29,7 @@
         </div>
 
         <div class="col-xs-6 headerNavBox">
+
           <div class="row">
             <% if customer_signed_in? && !request.fullpath.include?("staffs") %>
               <%= link_to "MyPage", customer_path(current_customer.id), class: "col-xs-2 headerNavBtn" %>
@@ -48,7 +51,7 @@
           </div>
         </div>
 
-      </div>
+        </div>
     </div>
   </div>
 </header>
@@ -64,6 +67,7 @@
       <%= yield %>
     </div>
 </section>
+
 <% if customer_signed_in? && request.fullpath.index("/staffs/") == nil %>
 <footer>
   <div id="footer">
@@ -72,13 +76,10 @@
 </footer>
 <% elsif staff_signed_in? %>
 <% else %>
-<footer>
-  <div id="footer">
-    <div class="copyright">© 2020 NaganoCake</div>
-  </div>
-</footer>
-<% end %>
 
+  <% end %>
+</footer>
 </div>
 </body>
 </html>
+

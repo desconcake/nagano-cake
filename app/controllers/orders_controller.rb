@@ -64,6 +64,9 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.postage = 800
     @order.customer_id = current_customer.id
+
+    @order_items = OrderItem.where(order_id: @order.id)
+
     @order.save
 
     cart_items = current_customer.cart_items
@@ -76,6 +79,7 @@ class OrdersController < ApplicationController
       @order_item.save
     end
       redirect_to orders_thanks_path
+
 
   end
 

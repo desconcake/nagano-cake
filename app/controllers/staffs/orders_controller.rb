@@ -1,4 +1,5 @@
 class Staffs::OrdersController < ApplicationController
+
 	def index
 
 		if params[:customer_id] != nil
@@ -16,7 +17,7 @@ class Staffs::OrdersController < ApplicationController
 		   	@orders = @customer.orders
 		else
 			@orders = Order.all
-		end
+
 
 	end
 
@@ -51,7 +52,13 @@ class Staffs::OrdersController < ApplicationController
 	def order_item_params
 		params.require(:order_item).permit(:create_status)
 	end
-	def place
-		params.require(:plase)
+
+
+
+	def place_params
+		params.require(:place).permit("top")
 	end
 end
+
+
+

@@ -36,16 +36,29 @@ Rails.application.routes.draw do
   end
   get 'orders/check', to: 'orders#check'
   get 'orders/thanks', to: 'orders#thanks'
+
   delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
   resources :orders, only:[ :index, :new, :create, :show ]
   post 'orders/check', to: 'orders#check'
 
 
 
-
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
+
+ #  namespace :admins do
+ #    get 'top', to: 'home#top'
+	#   resources :orders, only:[ :index, :show, :edit, :update ]
+	#   resources :customers, only:[ :index, :show, :edit, :update ]
+	#   resources :items, only:[ :index, :show, :new, :create, :edit, :update ]
+	#   resources :genres, only:[ :index, :new, :create, :edit, :update ]
+	# end
+
+
+
 
 
 
