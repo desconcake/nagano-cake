@@ -5,6 +5,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    # @order_item = OrderItem.find(params[:id])
+    # @customer.id = current_customer.id
+    # @item = @orders.order_items.items
   end
 
   def new
@@ -24,18 +27,25 @@ class OrdersController < ApplicationController
 
     elsif params[:radio_num] == "2"
       #binding.pry
-      address = SubAddress.find(params[:sub_address])
+      @address = SubAddress.find(params[:sub_address])
       @postal_code = address.postal_code
       @shipping_address = address.shipping_address
       @delivery_name = address.delivery_name
 
     elsif params[:radio_num] == "3"
       @postal_code = params[:postal_code]
-      @shipping_address = params[:shipping_addres]
+      @shipping_address = params[:shipping_address]
       @delivery_name = params[:delivery_name]
 
-      @sub_address = SubAddress.new(sub_address_params)
-      @sub_address = [@postal_code, @shipping_address, @delivery_name]
+      # @sub_address = SubAddress.new(sub_address_params)
+      # @sub_address = [@postal_code, @shipping_address, @delivery_name]
+
+      @sub_address = SubAddress.new
+      @sub_address.postal_code = @postal_code
+      @sub_address.shipping_address = @shipping_address
+      @sub_address.delivery_name = @delivery_name
+      @sub_address.customer_id = current_customer.id
+
       @sub_address.save
     end
 

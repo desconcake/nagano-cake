@@ -27,12 +27,19 @@ class Staffs::OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
+		@order_items = @order.items
+		if @order_items.
 		@order.update(order_params)
 		redirect_to staffs_order_path(@order)
 	end
 	def item_update
 		order_item = OrderItem.find(params[:id])
+		@order = order_item.order
 		order_item.update(order_item_params)
+		# if order_item.order_items == 1
+		#    @order.order_status == 1
+		#    @order.update
+		# elsif order_item.order_items == 1
 		redirect_to staffs_order_path(order_item.order.id)
 	end
 	private

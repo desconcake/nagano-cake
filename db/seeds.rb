@@ -37,3 +37,4 @@ Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, 
 # OrderItem.find_or_create_by!(id:1, order_id:2, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
 # OrderItem.find_or_create_by!(id:2, order_id:2, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
 # OrderItem.find_or_create_by!(id:3, order_id:2, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
+
