@@ -30,5 +30,5 @@
     </tr>
   </table>
     <%= link_to "編集する", edit_staffs_customer_path(@customer), class: "btn btn-success"%>
-    <%= link_to "注文履歴一覧を見る", staffs_orders_path, class: "btn btn-primary"%>
+    <%= link_to "注文履歴一覧を見る", staffs_orders_search_path(@customer.id), class: "btn btn-primary"%>
 </div>

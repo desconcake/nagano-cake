@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class='row'>
 			<div class="col-xs-8">
-				<h2>ショッピングカート</h2>
+				<h3>ショッピングカート</h3>
 			</div>
 			<div class="col-xs-4">
 			    <button type="button" class="btn btn-default btn-lg pull-right">
@@ -27,9 +27,11 @@
 						<td><%= attachment_image_tag cart_item.item, :item_image, :fill, 50, 50, fallback: "no_image.png", size: '50x50' %><span><%= cart_item.item.name %></span></td>
 						<td><%= (cart_item.item.priceWithTax.to_i).to_s(:delimited) %></td>
 			         	<%= form_for([cart_item.item, cart_item]) do |f| %>
-				     		<td><%= f.number_field :quantity %></td>
+				     		<td>
+				     			<%= f.number_field :quantity, min: 1, max: 10,	class: 'form-control input-sm col-xs-10' %>
+			     			</td>
 				 		　	<td>
-			 					<%= f.submit '変更',local: true %>
+			 					<%= f.submit('変更',class: 'btn btn-outline-secondary btn-sm') %>
 				 			</td>
 			         		<td><%= (cart_item.item.non_taxed_price * cart_item.quantity).to_s(:delimited) %></td>
 			         	<% end %>
