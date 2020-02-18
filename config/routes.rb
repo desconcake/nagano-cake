@@ -35,12 +35,15 @@ Rails.application.routes.draw do
     end
   resources :cart_items, only: [ :index, :update, :create, :destroy ]
   end
-
-  delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
-
   get 'orders/check', to: 'orders#check'
   get 'orders/thanks', to: 'orders#thanks'
-  resources :orders, only:[ :index, :show, :new, :create ]
+  delete '/cart_items/', to: 'cart_items#clear' #カートアイテム全件削除
+  resources :orders, only:[ :index, :new, :create, :show ]
+  post 'orders/check', to: 'orders#check'
+
+
+
+
   resources :sub_addresses, only:[ :index, :show , :new, :create, :edit, :update, :destroy ]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
