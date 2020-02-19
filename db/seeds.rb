@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 Customer.create(id:1, surname: "山田", name: "花子", surname_kana: "ヤマダ", name_kana: "ハナコ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "example.com")
 Customer.create(id:2, surname: "ぺん", name: "太郎", surname_kana: "ペン", name_kana: "タロウ", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "12@12", password: "2222222")
 Customer.create(id:3, surname: "こうぺん", name: "ちゃん", surname_kana: "コウペン", name_kana: "チャン", phone_number: "090-0000-0000", postal_code: "1500041", address: "東京都渋谷区神南１丁目１９−１１　パークスクエア２ 4階", email: "13@13", password: "3333333")
@@ -16,7 +15,6 @@ Order.find_or_create_by(id:3, :customer_id => 2, :billing_amount => 10000, :post
 Order.find_or_create_by(id:4, :customer_id => 2, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん四郎', :shipping_address => "配送先住所", :postal_code => 1600000, :order_status => 'waiting')
 Order.find_or_create_by(id:5, :customer_id => 3, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん五郎', :shipping_address => "配送先住所", :postal_code => 1600000, :order_status => 'waiting')
 Order.find_or_create_by(id:6, :customer_id => 3, :billing_amount => 10000, :postage => 800, :method_of_payment => true, :delivery_name =>'ぺん六郎', :shipping_address => "配送先住所", :postal_code => 1600000, :order_status => 'waiting')
-
 Genre.find_or_create_by(id:1, name: "ケーキ", genre_status: 1)
 Genre.find_or_create_by(id:2, name: "クッキー", genre_status: 1)
 Genre.find_or_create_by(id:3, name: "チョコレート", genre_status: 1)
@@ -33,7 +31,6 @@ Item.find_or_create_by(id:7, name: "大きな桃のゼリー", non_taxed_price: 
 Item.find_or_create_by(id:8, name: "マカロンセット（8個）", non_taxed_price: 1200, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:9, name: "マカロンセット（16個）", non_taxed_price: 2000, genre_id: 4, description: "aaa")
 Item.find_or_create_by(id:10, name: "バナナケーキ", non_taxed_price: 980, genre_id: 1, description: "aaa")
-
 # OrderItem.find_or_create_by!(id:1, order_id:2, item_id: 1, order_quantity: 1, tax_included_price: 500, create_status: 1)
 # OrderItem.find_or_create_by!(id:2, order_id:2, item_id: 2, order_quantity: 2, tax_included_price: 2000, create_status: 2)
 # OrderItem.find_or_create_by!(id:3, order_id:2, item_id: 3, order_quantity: 3, tax_included_price: 3000, create_status: 3)
