@@ -44,13 +44,11 @@ class OrdersController < ApplicationController
       @sub_address.shipping_address = @shipping_address
       @sub_address.delivery_name = @delivery_name
       @sub_address.customer_id = current_customer.id
-
       @sub_address.save
     end
 
     @cart_items = current_customer.cart_items
     #binding.pry
-
 
   end
 

@@ -4,12 +4,15 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
   has_many :orders
+
   has_many :sub_addresses
   has_many :cart_items
 
 
   acts_as_paranoid
+
   def full_name
     surname + name
   end
