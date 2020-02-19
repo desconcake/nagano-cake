@@ -1,13 +1,28 @@
 <h1>配送先登録/一覧</h1>
+<table class="table" >
 <%= form_for(@sub_address) do |f| %>
-  <p>郵便番号</p>
-  <%= f.text_field :postal_code %>
-  <p>住所</p>
-  <%= f.text_area :shipping_address %>
-  <p>宛名</p>
-  <%= f.text_field :delivery_name %>
+  <thead>
+    <tr>
+      <td>郵便番号</td>
+      <th><%= f.text_field :postal_code %></th>
+    </tr>
+    <tr>
+      <td>住所</td>
+      <th><%= f.text_area :shipping_address %></th>
+    </tr>
+    <tr>
+      <td>宛名</td>
+      <th><%= f.text_field :delivery_name %></th>
+    </tr>
+  </thead>
+</table>
 
-  <br><%= f.submit "登録する", class: "pull-right", class: "btn btn-warning" %>
+  <div class="touroku">
+      <br><%= f.submit "登録する", class: "pull-right", class: "btn btn-warning" %>
+  </div>
+
+
+
 <% end %>
 
 <table class="table table-striped" >

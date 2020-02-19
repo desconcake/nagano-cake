@@ -2,24 +2,25 @@ class Staffs::OrdersController < ApplicationController
 
 	def index
 
-		if params[:customer_id] != nil
-			@orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).reverse_order
+    if params[:customer_id] != nil
+          @orders = Order.where(customer_id: params[:customer_id]).page(params[:page]).reverse_order
     else
-    	@orders = Order.all
+     	@orders = Order.all
    	end
 
-	  if params[:place] && params[:place] == 'top'
-         	@orders = Order.where(created_at: Date.current.all_day)
-            .order("created_at")
-        	@orders_count = @orders.count
+	   if params[:place] && params[:place] == 'top'
+          	@orders = Order.where(created_at: Date.current.all_day)
+             .order("created_at")
+         	@orders_count = @orders.count
     elsif params[:id]
-		 	@customer = Customer.find(params[:id])
-		   	@orders = @customer.orders
-		else
+		  	@customer = Customer.find(params[:id])
+		    	@orders = @customer.orders
+		 else
 			@orders = Order.all
 
 
-	end
+ end
+end
 
 	def show
     	@order = Order.find(params[:id])

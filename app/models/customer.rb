@@ -6,10 +6,8 @@ class Customer < ApplicationRecord
 
   has_many :orders
   has_many :sub_addresses
-
-  has_many :sub_addresses
   has_many :cart_items
-  has_many :orders
+
 
   acts_as_paranoid
   def full_name
