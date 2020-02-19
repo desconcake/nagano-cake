@@ -1,37 +1,33 @@
-<div class="body">
-  <div class ='container'>
-    <h2>商品一覧画面</h2>
-      <div class='row'>
-        <table class="table table-hover table-inverse">
-          <%= link_to "商品追加", new_staffs_item_path %>
-            <thead>
-              <tr>
-                <th>注文ID</th>
-                <th>商品名</th>
-                <th>税抜き価格</th>
-                <th>ジャンル</th>
-                <th>ステータス</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @items.each do |item| %>
-              <tr>
-               <td><%= item.id %></td>
-               <td><%= link_to item.name, staffs_item_path(item.id) %></td>
-               <td><%= item.non_taxed_price.to_s(:delimited) %></td>
-               <td><%= item.genre.name %></td>
-               <td>
-                  <% if item.sale_status == true %>
-                  販売中
-                  <% else %>
-                  売り切れ
-                  <% end %>
-                </td>
-              </tr>
+<div class='row'>
+  <h2>商品一覧画面</h2>
+    <table class="table table-hover table-inverse">
+      <%= link_to "商品追加", new_staffs_item_path, class: "btn btn-default pull-left" %>
+        <thead>
+          <tr>
+            <th>注文ID</th>
+            <th>商品名</th>
+            <th>税抜き価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @items.each do |item| %>
+          <tr>
+           <td><%= item.id %></td>
+           <td><%= link_to item.name, staffs_item_path(item.id) %></td>
+           <td><%= item.non_taxed_price.to_s(:delimited) %></td>
+           <td><%= item.genre.name %></td>
+           <td>
+              <% if item.sale_status == true %>
+              販売中
+              <% else %>
+              売り切れ
               <% end %>
-            </tbody>
-          </div>
-      </table>
-    </div>
-  </div>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </div>
+  </table>
 </div>

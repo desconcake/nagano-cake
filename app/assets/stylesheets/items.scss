@@ -11,12 +11,12 @@
   filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.2));
 }
 
-#genre_list_area table tr th{
+.table tr th{
   font-weight: bold;
   color: #6f5436;
+  background-color: #e2d3d0;
   /*てすとだよ〜*/
 }
-
 /*.table_genre{
   font-weight: bold;
   /*テスト２*/
@@ -32,6 +32,18 @@
 .item_content {
   margin-left: 7px;
   margin-bottom: 10px;
+}
+
+.item_img {
+  margin-bottom: 10px;
+}
+
+.item_img:hover {
+  opacity: 0.8 ;
+}
+
+.item_img:active {
+  opacity: 0.5 ;
 }
 
 .item_list_box {
@@ -66,15 +78,14 @@
 .item_count {
   padding: 12px;
   font-size: 17px;
-  font-weight: nomal;
+  font-weight: normal;
 }
 
 /* show.html.erb */
 
-
-
-.text_color{
+.item_text{
   color: #333;
+  margin-bottom: 30px;
 }
 
 .price{

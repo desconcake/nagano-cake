@@ -43,8 +43,18 @@
               <%= link_to "注文履歴一覧", staffs_orders_path, class: "col-xs-3 headerNavBtn staff_header" %>
               <%= link_to "ジャンル管理", staffs_genres_path, class: "col-xs-3 headerNavBtn staff_header" %>
               <%= link_to "", destroy_staff_session_path, method: :delete, class: "col-xs-1 headerNavBtn staff_header glyphicon glyphicon-log-out" %>
+             <div class="col-xs-5 pull-right">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="キーワード">
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="submit">
+                    <i class='glyphicon glyphicon-search'></i>
+                  </button>
+                </span>
+              </div>
+            </div>
             <% else %>
-              <%= link_to "ながのCAKEのこと", home_about_path, class: "col-xs-4 headerNavBtn" %>
+              <%= link_to "ながのCAKEとは", home_about_path, class: "col-xs-4 headerNavBtn" %>
               <%= link_to "新規会員登録", new_customer_registration_path, class: "col-xs-4 headerNavBtn" %>
               <%= link_to "ログイン", new_customer_session_path, class: "col-xs-4 headerNavBtn" %>
             <% end %>
