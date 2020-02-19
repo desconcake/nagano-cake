@@ -2,22 +2,47 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.content {
+    margin-bottom: 18px;
+}
+
 .clearfix::after{
-	content: "";
-	display: block;
+    content: "";
+    display: block;
 }
-
+.coutomer-sign-in {
+    margin-top: 90px;
+}
 .coutomer-line1 {
-
 }
-
 .coutomer-mail-name {
-	float: left;
-	font-size: 18px;
-	margin-left: 200px;
-	width: 200px;
+    float: left;
+    font-size: 18px;
+    margin-left: 200px;
+    width: 150px;
 }
-
 .coutomer-mail-field {
-	float: right;
+    float: right;
+    margin-right: 30px;
+}
+.coutomer-pass-name {
+    float: left;
+    font-size: 18px;
+    margin-left: 200px;
+    width: 150px;
+}
+.coutomer-pass-field {
+    float: right;
+    margin-right: 30px;
+}
+.customer-pass-forget {
+    float: right;
+    margin-right: 40px;
+    border-bottom: solid 1px;
+}
+.customer-login {
+    margin-left: 350px;
+}
+.kotira {
+    margin-left: 100px;
 }

@@ -2,12 +2,12 @@ class ItemsController < ApplicationController
 
   def index
     if params[:genre_id] != nil
-    @items = Item.where(genre_id: params[:genre_id]).page(params[:page]).reverse_order
+    @items = Item.where(genre_id: params[:genre_id]).page(params[:page])
     @items_count = @items.count
     @genres = Genre.where(genre_status: true)
     @genre = Genre.find(params[:genre_id])
     else
-    @items = Item.all.page(params[:page]).reverse_order
+    @items = Item.all.page(params[:page])
     @items_all = Item.all
     @items_count = @items_all.count
     @genres = Genre.where(genre_status: true)
