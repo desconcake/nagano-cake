@@ -16,9 +16,9 @@
 
           <% @orders.each do |order| %>
           <tr>
-             <td><%= link_to order.created_at.strftime("%Y/%m/%d"), staffs_order_path(order.id) %></td>
-             <td><%= order.customer.surname + order.customer.name  %></td>
-             <td>
+              <td><%= link_to order.created_at.strftime("%Y/%m/%d"), staffs_order_path(order.id) %></td>
+              <td><%= order.customer.surname + order.customer.name  %></td>
+              <td>
               <% total = 0 %>
               <% order.order_items.each do |item| %>
               <% total += item.order_quantity %>

@@ -1,7 +1,7 @@
 class Staffs::CustomersController < ApplicationController
 
-  def index
-    @customers = Customer.page(params[:page])
+def index
+    @customers = Customer.with_deleted.page(params[:page])
   end
 
   def show
@@ -14,7 +14,7 @@ class Staffs::CustomersController < ApplicationController
 
   def update
     @customer = Customer.with_deleted.find(params[:id])
-    if params[:deleted_at] == "無効"
+    if params[:customer][:deleted_at] == "無効"
     @customer.delete
     else
     @customer.restore

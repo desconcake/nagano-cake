@@ -14,7 +14,7 @@ ja:
         preparing: 発送準備中
         sent: 発送済
 
-ja:
+
   views:
     pagination:
       first: '最初'
