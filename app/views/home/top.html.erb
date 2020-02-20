@@ -1,0 +1,26 @@
+<div class="row">
+  <%= render 'items/genre_list', genres: @genres %>
+
+    <div class="col-xs-9">
+      <div class="title">商品一覧
+        <span class="item_count">全 <%= @items_count %> 件</span>
+      </div>
+
+        <div class="item_list_box">
+            <% @items.each do |item| %>
+            <div class="item">
+                <%= attachment_image_tag item, :item_image, :fill, 200, 150, format: 'jpeg', class: "img-rounded pull-left profile-img", fallback: "no_image.jpg", :size =>'200x150' %>
+                <div class="item_btn">
+                <%= link_to item.name, item_path(item.id), class: "item_link" %>
+                </div>
+                <div class="price_text">
+                  <% @item_price = item.non_taxed_price.to_i * 1.1  %>
+                ¥<%= @item_price.floor.to_s(:delimited) %>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <%= paginate @items, class: "paginate" %>
+    </div>
+
+  </div>

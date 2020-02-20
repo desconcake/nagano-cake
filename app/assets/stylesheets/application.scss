@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Sawarabi+Gothic&display=swap');
+
+
+html{
+  height: 100%;
+}
+
+#wrap {
+   width: 100%;
+   min-height: 100vh;
+   position: relative;
+   height:auto !important; /*IE6対策*/
+   height: 100%; /*IE6対策*/
+   padding-bottom: 100px;/*←footerの高さ*/
+   box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+body{
+  -webkit-text-size-adjust:100%;
+  margin:0;
+  padding:0;
+  border-top:6px solid #6f5436;/*#D2B48C 茶系*/
+  background-color: #fff;
+  color: #6f5436;
+  background-color: #fff9f5;
+  font-size:15px;
+  font-family: 'Sawarabi Gothic', sans-serif;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.header {
+  height: 60px;
+  margin-bottom: 50px;
+}
+
+.header_logo {
+  color: #6f5436;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 37px;
+}
+
+a:hover,
+a:active{
+  color: #946c45;
+  text-decoration:none;/* underline */
+}
+
+.headerNavBtn{
+  text-align:center;
+  height:4em;
+  line-height:4em;
+  color: #6f5436;
+  font-size:18px;
+}
+
+.staff_header {
+  font-size:17px;
+}
+
+.login_name {
+  text-align:center;
+  height:6.5em;
+  line-height:6.5em;
+  color: #6f5436;
+  font-size:12px;
+}
+/*.headerNavBtn:hover{
+    color: #EEE;
+}*/
+
+.header_title {
+  height: 60px;
+  line-height: 60px;
+  padding: 0;
+}
+
+.flash {
+  color: #84c1ff;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.btn {
+  margin:0;
+}
+
+#footer {
+  width: 100%;
+  height: 100px;
+  background-color: #6f5436;
+  line-height: 100px;
+  position: absolute;
+  bottom: 0;
+}
+
+.copyright {
+  color: #FAFAFA;
+  height: 100px;
+  text-align: center;
+}
+
+/* pagination */
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}

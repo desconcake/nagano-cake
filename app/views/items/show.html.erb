@@ -1,0 +1,34 @@
+
+<%= render 'items/genre_list', genres: @genres %>
+
+<div class="col-xs-9">
+  <div class="row">
+    <div class="col-xs-6">
+      <%= attachment_image_tag @item, :item_image, :fill, 300, 200, format: 'jpeg', class: "img-rounded pull-right profile-img", fallback: "no_image.jpg", :size =>'300x200' %>
+    </div>
+    <div class="col-xs-6">
+      <h2 class="item_text"><%= @item.name %></h2>
+      <h4 class="item_text"><%= @item.description %></h4>
+      <% @item_price = @item.non_taxed_price.to_i * 1.1  %>
+      <p class="price">¥<%= @item_price.floor.to_s(:delimited) %><span> (税込) </span></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-6 ">
+      <%= form_for([@item,@cart_item]) do |f| %>
+      <!-- 個数選択 -->
+      <div class="row">
+        <div class="col-xs-5">
+        <span><%= f.label :"個数選択" %>
+        <%= f.number_field :quantity, min: 1, max: 10, class:"form-control" %></span>
+        </div>
+        <div class="col-xs-7">
+        <!-- カートに入れる -->
+        <%= f.submit "カートに入れる", class: "btn btn-primary btn-lg", data: {"turbolinks" => false}%>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
